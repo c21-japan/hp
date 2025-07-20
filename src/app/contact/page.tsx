@@ -229,8 +229,7 @@ function ContactForm() {
                   <div>
                     <p className="font-medium text-gray-900">電話番号</p>
                     <p className="text-lg font-semibold text-yellow-600">0120-43-8639</p>
-                    <p className="text-sm text-gray-500">平日 9:00-22:00</p>
-                    <p className="text-sm text-gray-500">土日祝 10:00-17:00</p>
+                    <p className="text-sm text-gray-500">9:00-22:00</p>
                   </div>
                 </div>
 
@@ -261,7 +260,7 @@ function ContactForm() {
                 <div className="bg-yellow-50 p-4 rounded-lg">
                   <h3 className="font-medium text-yellow-800 mb-2">対応エリア</h3>
                   <p className="text-sm text-yellow-700">
-                    奈良県全域（広陵町・大和高田市・奈良市・生駒市・橿原市・大和郡山市・天理市など）
+                    奈良県全域・大阪府全域
                   </p>
                 </div>
 
@@ -387,13 +386,12 @@ function ContactForm() {
                         errors.inquiryType ? 'border-red-500' : 'border-gray-300'
                       }`}
                     >
-                      <option value="">選択してください</option>
-                      <option value="buy">不動産購入</option>
-                      <option value="sell">不動産売却</option>
-                      <option value="rent">賃貸物件</option>
+                      <option value="">ご相談内容を選択してください</option>
+                      <option value="buy">物件購入</option>
+                      <option value="sell">物件売却</option>
                       <option value="investment">投資用物件</option>
+                      <option value="rental">賃貸物件</option>
                       <option value="renovation">リフォーム</option>
-                      <option value="consultation">無料相談</option>
                       <option value="other">その他</option>
                     </select>
                     {errors.inquiryType && (

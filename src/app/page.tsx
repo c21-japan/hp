@@ -32,6 +32,7 @@ interface Property {
   size: string;
   age: string;
   description: string;
+  highlight?: string; // Added for new_featured_properties
 }
 
 interface FAQItem {
@@ -67,7 +68,8 @@ export default function Home() {
       type: '新築戸建て',
       size: '120㎡',
       age: '築1年',
-      description: '閑静な住宅街に位置する新築戸建てです。3LDKの広々とした間取りで、ご家族の理想の住まいとして最適です。'
+      description: '閑静な住宅街に位置する新築戸建てです。3LDKの広々とした間取りで、ご家族の理想の住まいとして最適です。',
+      highlight: '新築' // Added for new_featured_properties
     },
     {
       id: 2,
@@ -78,7 +80,8 @@ export default function Home() {
       type: '中古マンション',
       size: '65㎡',
       age: '築15年',
-      description: '駅徒歩5分の好立地にある中古マンションです。2LDKの使いやすい間取りで、投資用としても人気があります。'
+      description: '駅徒歩5分の好立地にある中古マンションです。2LDKの使いやすい間取りで、投資用としても人気があります。',
+      highlight: '中古' // Added for new_featured_properties
     },
     {
       id: 3,
@@ -89,7 +92,8 @@ export default function Home() {
       type: '土地',
       size: '150㎡',
       age: '角地',
-      description: '住宅用地として最適な角地の土地です。日当たり良好で、新築戸建ての建設が可能です。'
+      description: '住宅用地として最適な角地の土地です。日当たり良好で、新築戸建ての建設が可能です。',
+      highlight: '土地' // Added for new_featured_properties
     },
     {
       id: 4,
@@ -100,7 +104,8 @@ export default function Home() {
       type: '中古戸建て',
       size: '95㎡',
       age: '築8年',
-      description: 'リフォーム済みの中古戸建てです。3LDKの使いやすい間取りで、すぐにお引っ越し可能です。'
+      description: 'リフォーム済みの中古戸建てです。3LDKの使いやすい間取りで、すぐにお引っ越し可能です。',
+      highlight: '中古' // Added for new_featured_properties
     },
     {
       id: 5,
@@ -111,7 +116,8 @@ export default function Home() {
       type: '中古マンション',
       size: '45㎡',
       age: '築20年',
-      description: '投資用として人気の1Kマンションです。駅徒歩3分の好立地で、安定した家賃収入が期待できます。'
+      description: '投資用として人気の1Kマンションです。駅徒歩3分の好立地で、安定した家賃収入が期待できます。',
+      highlight: '投資' // Added for new_featured_properties
     },
     {
       id: 6,
@@ -122,7 +128,8 @@ export default function Home() {
       type: '新築マンション',
       size: '75㎡',
       age: '築0年',
-      description: '最新設備を備えた新築マンションです。2LDKの広々とした間取りで、セキュリティも充実しています。'
+      description: '最新設備を備えた新築マンションです。2LDKの広々とした間取りで、セキュリティも充実しています。',
+      highlight: '新築' // Added for new_featured_properties
     }
   ];
 
@@ -239,43 +246,71 @@ export default function Home() {
     }
   ];
 
+  const handlePropertyDetail = (property: Property) => {
+    setSelectedProperty(property);
+    setIsModalOpen(true);
+  };
+
+  const handleInquiry = (property: Property) => {
+    setSelectedProperty(property);
+    setIsModalOpen(true);
+  };
+
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-yellow-500 to-yellow-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
-            <div className="flex justify-center mb-6">
-              <div className="bg-white p-4 rounded-lg shadow-lg">
-                <span className="text-yellow-600 font-bold text-2xl">CENTURY 21</span>
+      <section className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-8">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              センチュリー21ホームマート
+            </h1>
+            <div className="text-xl md:text-2xl mb-6">
+              <div className="sm:hidden">
+                <div>奈良に根ざした</div>
+                <div>安心サポート</div>
+              </div>
+              <div className="hidden sm:block">
+                奈良に根ざした安心サポート
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              センチュリー21ホームマート<br />
-              奈良に根ざした安心サポート
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-yellow-100">
-              売買仲介・買取（URICO）・リフォームまで
+            <p className="text-lg md:text-xl text-yellow-100 max-w-3xl mx-auto">
+              センチュリー21ホームマートは、リフォーム施工店として自社施工に特化した不動産専門店です
             </p>
-            <p className="text-lg mb-8 text-yellow-200 max-w-4xl mx-auto">
-              センチュリー21ホームマートは、センチュリー21リフォーム施工店として奈良県広陵町の不動産専門店です。豊富な地域情報とセンチュリー21の全国ネットワークを活かし、お住まいの購入・売却・リフォームをワンストップでお手伝いいたします。創業以来、地域に寄り添った誠実な対応で多くのお客様にご支持いただいてきました。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-yellow-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center text-lg"
-              >
-                <Phone className="mr-2 h-6 w-6" />
-                無料査定を依頼する
-              </Link>
-              <Link
-                href="/contact"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors inline-flex items-center text-lg"
-              >
-                <MessageCircle className="mr-2 h-6 w-6" />
-                LINEで気軽に相談
-              </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-yellow-500 bg-opacity-20 rounded-lg p-6">
+              <div className="text-3xl font-bold mb-2">8,000件以上</div>
+              <div className="text-yellow-100">累計販売実績</div>
             </div>
+            <div className="bg-yellow-500 bg-opacity-20 rounded-lg p-6">
+              <div className="text-3xl font-bold mb-2">宅建士在籍</div>
+              <div className="text-yellow-100">専門資格保有</div>
+            </div>
+            <div className="bg-yellow-500 bg-opacity-20 rounded-lg p-6">
+              <div className="text-3xl font-bold mb-2">自社施工</div>
+              <div className="text-yellow-100">品質保証</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="bg-white text-yellow-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center text-lg"
+            >
+              <Phone className="mr-2 h-6 w-6" />
+              お問い合わせ
+            </Link>
+            <a
+              href="https://line.me/R/ti/p/@c21-homemart"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors inline-flex items-center text-lg"
+            >
+              <MessageCircle className="mr-2 h-6 w-6" />
+              LINEで気軽に相談
+            </a>
           </div>
         </div>
       </section>
@@ -309,155 +344,164 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Buy Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              三位一体のワンストップサービス
-            </h2>
-            <p className="text-lg text-gray-600">
-              お客様のニーズに合わせた幅広いサービスをご提供します
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">買いたい方</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              当社は奈良県内だけでなく、奈良県と大阪府を対応しています。ホームマートでは奈良県や大阪府を中心に、お客様の理想の住まいをサポートいたします。
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
-                <HomeIcon className="h-8 w-8 text-yellow-600" />
+          {/* Search Form */}
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h3 className="text-xl font-semibold mb-4">条件を指定して検索</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">エリア</label>
+                <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                  <option value="">エリアを選択</option>
+                  <optgroup label="奈良県">
+                    <option value="nara">奈良市</option>
+                    <option value="yamato-koriyama">大和郡山市</option>
+                    <option value="yamato-takada">大和高田市</option>
+                    <option value="kashihara">橿原市</option>
+                    <option value="ikoma">生駒市</option>
+                    <option value="tenri">天理市</option>
+                    <option value="koryo">広陵町</option>
+                    <option value="kashiba">香芝市</option>
+                    <option value="gose">御所市</option>
+                    <option value="uda">宇陀市</option>
+                    <option value="yamatokooriyama">大和郡山市</option>
+                    <option value="shiki">磯城郡</option>
+                    <option value="kitakatsuragi">北葛城郡</option>
+                    <option value="takaichi">高市郡</option>
+                    <option value="yoshino">吉野郡</option>
+                    <option value="udagawa">宇陀郡</option>
+                  </optgroup>
+                  <optgroup label="大阪府">
+                    <option value="kishiwada">岸和田市</option>
+                    <option value="izumi">和泉市</option>
+                    <option value="sakai">堺市</option>
+                    <option value="tondabayashi">富田林市</option>
+                    <option value="kawachinagano">河内長野市</option>
+                    <option value="matsubara">松原市</option>
+                    <option value="daito">大東市</option>
+                    <option value="izumisano">泉佐野市</option>
+                    <option value="kaizuka">貝塚市</option>
+                    <option value="sennan">泉南市</option>
+                    <option value="tadaoka">忠岡町</option>
+                    <option value="kumatori">熊取町</option>
+                    <option value="tajiri">田尻町</option>
+                    <option value="sennan-gun">泉南郡</option>
+                    <option value="senboku-gun">泉北郡</option>
+                  </optgroup>
+                </select>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">買いたい方</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                地元奈良の新築・中古物件を豊富にご紹介。地域密着の情報力で理想の住まい探しを全力サポートします。
-              </p>
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">地域密着の情報力</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">豊富な物件情報</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">丁寧なサポート</span>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">物件種別</label>
+                <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                  <option value="">種別を選択</option>
+                  <option value="new-house">新築一戸建て</option>
+                  <option value="used-house">中古戸建て</option>
+                  <option value="mansion">中古マンション</option>
+                  <option value="land">土地</option>
+                </select>
               </div>
-              <Link href="/buy" className="text-yellow-600 hover:text-yellow-700 font-medium inline-flex items-center">
-                詳しく見る
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">価格</label>
+                <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                  <option value="">価格を選択</option>
+                  <option value="0-500">5,000,000円まで</option>
+                  <option value="500-1000">5,000,000円から10,000,000円</option>
+                  <option value="1000-1500">10,000,000円から15,000,000円</option>
+                  <option value="1500-2000">15,000,000円から20,000,000円</option>
+                  <option value="2000-2500">20,000,000円から25,000,000円</option>
+                  <option value="2500-3000">25,000,000円から30,000,000円</option>
+                  <option value="3000-">30,000,000円以上</option>
+                </select>
+              </div>
+              <div className="flex items-end">
+                <button className="w-full bg-yellow-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-yellow-700 transition-colors">
+                  検索する
+                </button>
+              </div>
             </div>
+          </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
-                <Building className="h-8 w-8 text-yellow-600" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">売りたい方</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                無料査定ですぐに価格を診断。仲介＋当社直接買取（URICO）でお客様の大切な不動産をスピーディーかつ安心に現金化します。
-              </p>
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">無料査定サービス</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">URICO制度で即時買取</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">スピーディーな対応</span>
-                </div>
-              </div>
-              <Link href="/sell" className="text-yellow-600 hover:text-yellow-700 font-medium inline-flex items-center">
-                詳しく見る
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
-                <Wrench className="h-8 w-8 text-yellow-600" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">リフォームしたい方</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                中古購入後のリノベーションもお任せください。自社施工部門が高品質なリフォームプランをご提案し、快適な住まいづくりを実現します。
-              </p>
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">自社施工部門</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">高品質なリフォーム</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-gray-600">ワンストップ対応</span>
-                </div>
-              </div>
-              <Link href="/contact" className="text-yellow-600 hover:text-yellow-700 font-medium inline-flex items-center">
-                お問い合わせ
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
+          {/* Property Categories */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link href="/buy/new-house" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+              <HomeIcon className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">新築一戸建て</h3>
+              <p className="text-gray-600">新築の一戸建て住宅をご紹介します</p>
+            </Link>
+            <Link href="/buy/used-house" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+              <HomeIcon className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">中古戸建て</h3>
+              <p className="text-gray-600">中古の一戸建て住宅をご紹介します</p>
+            </Link>
+            <Link href="/buy/used-mansion" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+              <Building className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">中古マンション</h3>
+              <p className="text-gray-600">中古マンション・アパートをご紹介します</p>
+            </Link>
+            <Link href="/buy/land" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+              <MapPin className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">土地</h3>
+              <p className="text-gray-600">住宅用地や投資用土地をご紹介します</p>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
+      {/* Sell Section */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              選ばれる理由
-            </h2>
-            <p className="text-lg text-gray-600">
-              奈良に根ざした不動産会社として、多くのお客様に選ばれ続ける理由をご紹介します
-            </p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">売りたい方</h2>
+            <div className="text-lg text-gray-600 mb-8">
+              <div className="sm:hidden">
+                <div>不動産の売却も</div>
+                <div>ホームマートにお任せください</div>
+              </div>
+              <div className="hidden sm:block">
+                不動産の売却もホームマートにお任せください
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8 text-yellow-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">地域密着</h3>
-              <p className="text-sm text-gray-600">創業以来500件以上の取引実績</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
                 <Award className="h-8 w-8 text-yellow-600" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">全国ネットワーク</h3>
-              <p className="text-sm text-gray-600">センチュリー21約1000店舗</p>
+              <h3 className="text-xl font-semibold mb-4">10,000件以上の問い合わせ実績</h3>
+              <p className="text-gray-600">直近10年間の豊富な実績</p>
             </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wrench className="h-8 w-8 text-yellow-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">ワンストップ</h3>
-              <p className="text-sm text-gray-600">買取・リフォーム一貫対応</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
                 <Clock className="h-8 w-8 text-yellow-600" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">夜22時まで営業</h3>
-              <p className="text-sm text-gray-600">お仕事帰りにも相談可能</p>
+              <h3 className="text-xl font-semibold mb-4">奈良県と大阪府内平均より短縮</h3>
+              <p className="text-gray-600">スピーディーな売却を実現</p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Shield className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">不具合があっても当社の職人が対応</h3>
+              <p className="text-gray-600">自社施工で安心のアフターサービス</p>
             </div>
           </div>
 
           <div className="text-center mt-8">
             <Link
-              href="/why-choose-us"
-              className="inline-flex items-center bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors"
+              href="/sell"
+              className="inline-flex items-center bg-yellow-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-700 transition-colors text-lg"
             >
-              詳しく見る
+              無料査定を依頼する
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
@@ -465,52 +509,58 @@ export default function Home() {
       </section>
 
       {/* Featured Properties */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              おすすめ物件
-            </h2>
-            <p className="text-lg text-gray-600">
-              奈良県内の厳選物件をご紹介
-            </p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">おすすめ物件</h2>
+            <p className="text-lg text-gray-600">奈良県と大阪府内の厳選物件をご紹介</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.slice(0, 6).map((property) => (
-              <div 
-                key={property.id} 
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => handlePropertyClick(property)}
-              >
-                <div className="h-48 bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500">物件画像</span>
+            {properties.map((property) => (
+              <div key={property.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="relative">
+                  <img
+                    src={property.image}
+                    alt={property.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  {property.highlight && (
+                    <div className="absolute top-2 left-2 bg-yellow-600 text-white px-2 py-1 rounded text-sm font-semibold">
+                      {property.highlight}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
-                  <div className="flex items-center text-gray-600 mb-2">
-                    <MapPin className="h-4 w-4 mr-1" />
-                    <span className="text-sm">{property.location}</span>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900">{property.title}</h3>
+                    <span className="text-sm text-gray-500">{property.type}</span>
                   </div>
-                  <p className="text-2xl font-bold text-yellow-600 mb-4">{property.price}</p>
-                  <div className="flex justify-between text-sm text-gray-500">
-                    <span>{property.type}</span>
-                    <span>{property.size}</span>
-                    <span>{property.age}</span>
+                  <p className="text-gray-600 mb-4">{property.location}</p>
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="text-2xl font-bold text-red-600">{property.price}</div>
+                    <div className="text-sm text-gray-500">
+                      {property.size} / {property.age}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-sm mb-4">{property.description}</p>
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => handlePropertyDetail(property)}
+                      className="flex-1 bg-yellow-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-yellow-700 transition-colors text-sm"
+                    >
+                      詳しく見る
+                    </button>
+                    <button
+                      onClick={() => handleInquiry(property)}
+                      className="flex-1 border border-yellow-600 text-yellow-600 py-2 px-4 rounded-md font-semibold hover:bg-yellow-50 transition-colors text-sm"
+                    >
+                      お問い合わせ
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link
-              href="/buy"
-              className="inline-flex items-center bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors"
-            >
-              もっと見る
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
           </div>
         </div>
       </section>

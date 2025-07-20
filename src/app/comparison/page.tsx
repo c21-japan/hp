@@ -84,71 +84,97 @@ export default function Comparison() {
       </section>
 
       {/* Comparison Grid */}
-      <section className="py-12">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* 他社カラム */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="text-center mb-8">
-                <div className="bg-blue-600 text-white p-6 rounded-lg mb-4">
-                  <Building className="h-8 w-8 mx-auto mb-2" />
-                  <h2 className="text-2xl font-bold">他社</h2>
-                  <p className="text-blue-100">従来型のアプローチ</p>
-                </div>
-              </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">当社と他社の違い</h2>
+            <p className="text-lg text-gray-600">なぜセンチュリー21ホームマートが選ばれるのか</p>
+          </div>
 
-              <div className="space-y-6">
-                {comparisonItems.map((item, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-500 hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center">
-                        <Home className="h-5 w-5 text-blue-600 mr-3" />
-                        <span className="font-semibold text-gray-900">{item.label}</span>
-                      </div>
-                      <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-bold">
-                        {item.competitor.value}
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600 pl-8">
-                      {item.competitor.description}
-                    </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* 他社 */}
+            <div className="bg-white rounded-lg shadow-md p-8">
+              <h3 className="text-2xl font-bold text-gray-700 mb-6 text-center">他社</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-red-600 text-sm font-bold">×</span>
                   </div>
-                ))}
+                  <div>
+                    <h4 className="font-semibold text-gray-900">外注施工</h4>
+                    <p className="text-sm text-gray-600">品質管理が困難で、工期の遅延リスク</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-red-600 text-sm font-bold">×</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">高額な仲介手数料</h4>
+                    <p className="text-sm text-gray-600">売却時の手数料が高く、利益が減少</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-red-600 text-sm font-bold">×</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">限定的な対応エリア</h4>
+                    <p className="text-sm text-gray-600">地域に限定されたサービス</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-red-600 text-sm font-bold">×</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">アフターサービス不備</h4>
+                    <p className="text-sm text-gray-600">工事後の対応が不十分</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* 当社カラム */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="text-center mb-8">
-                <div className="bg-yellow-600 text-white p-6 rounded-lg mb-4">
-                  <Home className="h-8 w-8 mx-auto mb-2" />
-                  <h2 className="text-2xl font-bold">当社</h2>
-                  <p className="text-yellow-100">革新的なビジネスモデル</p>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                {comparisonItems.map((item, index) => (
-                  <div key={index} className="bg-yellow-50 rounded-lg p-6 border-l-4 border-yellow-500 hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center">
-                        <Home className="h-5 w-5 text-yellow-600 mr-3" />
-                        <span className="font-semibold text-gray-900">{item.label}</span>
-                      </div>
-                      <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-bold">
-                        {item.ourCompany.value}
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600 pl-8">
-                      {item.ourCompany.highlight && (
-                        <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs font-semibold mr-2">
-                          ポイント
-                        </span>
-                      )}
-                      {item.ourCompany.description}
-                    </p>
+            {/* 当社 */}
+            <div className="bg-white rounded-lg shadow-md p-8">
+              <h3 className="text-2xl font-bold text-yellow-600 mb-6 text-center">当社</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-green-600 text-sm font-bold">○</span>
                   </div>
-                ))}
+                  <div>
+                    <h4 className="font-semibold text-gray-900">自社施工</h4>
+                    <p className="text-sm text-gray-600">品質管理が徹底され、工期の確実な遵守</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-green-600 text-sm font-bold">○</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">低い仲介手数料</h4>
+                    <p className="text-sm text-gray-600">お客様の利益を最大化する手数料体系</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-green-600 text-sm font-bold">○</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">広域対応</h4>
+                    <p className="text-sm text-gray-600">奈良県・大阪府全域に対応</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-green-600 text-sm font-bold">○</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">充実したアフターサービス</h4>
+                    <p className="text-sm text-gray-600">自社職人による確実な対応</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

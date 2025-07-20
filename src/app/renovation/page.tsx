@@ -332,44 +332,66 @@ export default function Renovation() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {renovationTypes.map((type, index) => {
-              const IconComponent = type.icon;
-              return (
-                <div key={index} className="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
-                      <IconComponent className="h-6 w-6 text-yellow-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold">{type.title}</h3>
-                  </div>
-                  <p className="text-gray-600 mb-6">{type.description}</p>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3">主な工事内容</h4>
-                    <div className="space-y-2">
-                      {type.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center">
-                          <CheckCircle className="h-4 w-4 text-yellow-600 mr-2" />
-                          <span className="text-sm text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Home className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">浴室リフォーム</h3>
+              <div className="text-3xl font-bold text-yellow-600 mb-2">500,000円から</div>
+              <p className="text-gray-600 mb-4">工期：3日から</p>
+              <p className="text-sm text-gray-500">ユニットバスや浴室の全面リフォーム</p>
+            </div>
 
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div className="bg-gray-50 p-3 rounded">
-                      <p className="text-gray-500">目安価格</p>
-                      <p className="font-semibold text-yellow-600">{type.price}</p>
-                    </div>
-                    <div className="bg-gray-50 p-3 rounded">
-                      <p className="text-gray-500">工期</p>
-                      <p className="font-semibold text-gray-700">{type.duration}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Wrench className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">キッチンリフォーム</h3>
+              <div className="text-3xl font-bold text-yellow-600 mb-2">800,000円から</div>
+              <p className="text-gray-600 mb-4">工期：3日から</p>
+              <p className="text-sm text-gray-500">システムキッチンの導入</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Shield className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">トイレリフォーム</h3>
+              <div className="text-3xl font-bold text-yellow-600 mb-2">300,000円から</div>
+              <p className="text-gray-600 mb-4">工期：1日</p>
+              <p className="text-sm text-gray-500">温水洗浄便座の導入</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Award className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">洗面台リフォーム</h3>
+              <div className="text-3xl font-bold text-yellow-600 mb-2">50,000円から</div>
+              <p className="text-gray-600 mb-4">工期：1日</p>
+              <p className="text-sm text-gray-500">洗面台の交換・リフォーム</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Home className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">和室から洋室</h3>
+              <div className="text-3xl font-bold text-yellow-600 mb-2">160,000円から</div>
+              <p className="text-gray-600 mb-4">工期：5日から</p>
+              <p className="text-sm text-gray-500">畳からフローリングへの変更</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Calculator className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">その他リフォーム</h3>
+              <div className="text-3xl font-bold text-yellow-600 mb-2">お見積り</div>
+              <p className="text-gray-600 mb-4">工期：要相談</p>
+              <p className="text-sm text-gray-500">お客様のご要望に応じて</p>
+            </div>
           </div>
         </div>
       </section>
