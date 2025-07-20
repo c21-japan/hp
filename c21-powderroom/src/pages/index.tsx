@@ -14,101 +14,124 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
+      className={`${geistSans.className} ${geistMono.className} font-sans min-h-screen bg-[#f7f7f7] flex flex-col items-center`}
     >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      {/* ヘッダー・ロゴ */}
+      <header className="w-full flex flex-col items-center py-8 bg-white shadow-md mb-8">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/c21reform-logo.png" // ロゴ画像はpublicディレクトリに配置してください
+          alt="CENTURY21リフォーム ロゴ"
+          width={320}
+          height={60}
           priority
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <h1 className="text-2xl font-bold mt-2 text-[#b4975a] tracking-wide">センチュリー21リフォーム</h1>
+      </header>
+
+      {/* メインビジュアル */}
+      <section className="w-full max-w-4xl flex flex-col items-center px-4 mb-12">
+        <div className="w-full rounded-xl overflow-hidden shadow-lg mb-6">
+          <Image
+            src="/main-visual.jpg" // メインビジュアル画像はpublicディレクトリに配置してください
+            alt="リフォームイメージ"
+            width={1200}
+            height={400}
+            className="w-full h-auto object-cover"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        <p className="text-lg text-center text-gray-700 mb-2">
+          奈良・広陵町のリフォームなら<br className="sm:hidden" />
+          <span className="font-bold text-[#b4975a]">センチュリー21リフォーム</span>にお任せください。
+        </p>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+          href="https://line.me/ti/p/0_Cxj91mML"
           target="_blank"
           rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-[#06c755] text-white font-semibold rounded-full px-6 py-3 mt-4 shadow hover:bg-[#05b14a] transition-colors"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          <Image src="/line.svg" alt="LINE" width={28} height={28} />
+          LINEで簡単お問い合わせ
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* スタッフ紹介 */}
+      <section className="w-full max-w-4xl px-4 mb-16">
+        <h2 className="text-xl font-bold text-[#b4975a] mb-6">スタッフ紹介</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {/* スタッフ1 */}
+          <div className="flex flex-col items-center bg-white rounded-lg shadow p-4">
+            <Image src="/staff1.png" alt="スタッフ1" width={100} height={100} className="rounded-full mb-2" />
+            <span className="font-semibold">乾 佑企</span>
+            <span className="text-sm text-gray-500">代表</span>
+          </div>
+          {/* スタッフ2 */}
+          <div className="flex flex-col items-center bg-white rounded-lg shadow p-4">
+            <Image src="/staff2.png" alt="スタッフ2" width={100} height={100} className="rounded-full mb-2" />
+            <span className="font-semibold">スタッフA</span>
+            <span className="text-sm text-gray-500">リフォームアドバイザー</span>
+          </div>
+          {/* スタッフ3 */}
+          <div className="flex flex-col items-center bg-white rounded-lg shadow p-4">
+            <Image src="/staff3.png" alt="スタッフ3" width={100} height={100} className="rounded-full mb-2" />
+            <span className="font-semibold">スタッフB</span>
+            <span className="text-sm text-gray-500">コーディネーター</span>
+          </div>
+        </div>
+        <p className="text-xs text-gray-400 mt-2 text-center">※スタッフ画像はイメージです</p>
+      </section>
+
+      {/* サービス案内 */}
+      <section className="w-full max-w-4xl px-4 mb-16">
+        <h2 className="text-xl font-bold text-[#b4975a] mb-6">サービス案内</h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <li className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+            <Image src="/service1.png" alt="水回りリフォーム" width={60} height={60} className="mb-2" />
+            <span className="font-semibold mb-1">水回りリフォーム</span>
+            <span className="text-gray-600 text-sm">キッチン・浴室・トイレなどのリフォーム</span>
+          </li>
+          <li className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+            <Image src="/service2.png" alt="内装リフォーム" width={60} height={60} className="mb-2" />
+            <span className="font-semibold mb-1">内装リフォーム</span>
+            <span className="text-gray-600 text-sm">クロス・床・建具などのリフォーム</span>
+          </li>
+          <li className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+            <Image src="/service3.png" alt="外装リフォーム" width={60} height={60} className="mb-2" />
+            <span className="font-semibold mb-1">外装リフォーム</span>
+            <span className="text-gray-600 text-sm">外壁・屋根・エクステリアなど</span>
+          </li>
+          <li className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+            <Image src="/service4.png" alt="その他リフォーム" width={60} height={60} className="mb-2" />
+            <span className="font-semibold mb-1">その他リフォーム</span>
+            <span className="text-gray-600 text-sm">小さな修繕から大規模リノベーションまで</span>
+          </li>
+        </ul>
+      </section>
+
+      {/* お問い合わせフォーム（ダミーUI） */}
+      <section className="w-full max-w-2xl px-4 mb-16">
+        <h2 className="text-xl font-bold text-[#b4975a] mb-6">お問い合わせ</h2>
+        <form className="bg-white rounded-lg shadow p-8 flex flex-col gap-4">
+          <input type="text" placeholder="お名前" className="border rounded px-3 py-2" required />
+          <input type="email" placeholder="メールアドレス" className="border rounded px-3 py-2" required />
+          <input type="tel" placeholder="電話番号（任意）" className="border rounded px-3 py-2" />
+          <textarea placeholder="お問い合わせ内容" className="border rounded px-3 py-2" rows={4} required />
+          {/* 実際の送信先は当社のメールアドレスやAPIに接続してください */}
+          <button type="submit" className="bg-[#b4975a] text-white font-semibold rounded px-6 py-3 hover:bg-[#a0864a] transition-colors">送信する</button>
+        </form>
+        <p className="text-xs text-gray-400 mt-2 text-center">※フォーム送信先は当社指定のものに設定してください</p>
+      </section>
+
+      {/* 会社情報 */}
+      <footer className="w-full bg-[#222] text-white py-8 mt-auto">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col gap-2">
+          <div className="font-bold text-lg mb-1">センチュリー21 ホームマート</div>
+          <div>〒635-0821 奈良県北葛城郡広陵町笠287-1</div>
+          <div>電話番号：<a href="tel:050-7117-7107" className="underline">050-7117-7107</a></div>
+          <div>代表：乾 佑企</div>
+          <div>免許番号：奈良県知事（1）第4582号</div>
+          <div>営業時間：9:00〜22:00（水曜定休）</div>
+        </div>
       </footer>
     </div>
   );
