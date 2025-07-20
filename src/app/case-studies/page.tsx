@@ -2,15 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Camera, 
-  ArrowLeft, 
-  ArrowRight, 
   Phone, 
   MessageCircle,
   Wrench,
-  Home,
-  Star
+  Home
 } from 'lucide-react';
 
 interface CaseStudy {
@@ -45,8 +43,8 @@ export default function CaseStudies() {
       category: 'tatami',
       title: '和室から洋室へのリフォーム',
       description: '築30年の和室を明るい洋室にリフォーム。床材をフローリングに変更し、壁紙も明るい色に変更することで、モダンで快適な空間に生まれ変わりました。',
-      beforeImage: '/images/case-studies/tatami-before-1.jpg',
-      afterImage: '/images/case-studies/tatami-after-1.jpg',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
       location: '奈良市',
       completionDate: '2024年3月'
     },
@@ -55,8 +53,8 @@ export default function CaseStudies() {
       category: 'tatami',
       title: '6畳和室の洋室化',
       description: '6畳の和室を洋室に変更。畳を撤去してフローリングを施工し、照明もLEDに変更。収納も充実させて、より使いやすい空間にしました。',
-      beforeImage: '/images/case-studies/tatami-before-2.jpg',
-      afterImage: '/images/case-studies/tatami-after-2.jpg',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
       location: '広陵町',
       completionDate: '2024年1月'
     },
@@ -64,106 +62,106 @@ export default function CaseStudies() {
     {
       id: '3',
       category: 'bathroom',
-      title: '浴室の全面リフォーム',
-      description: '古い浴室をユニットバスに全面リフォーム。シャワーと浴槽を分離し、安全性と快適性を向上させました。',
-      beforeImage: '/images/case-studies/bathroom-before-1.jpg',
-      afterImage: '/images/case-studies/bathroom-after-1.jpg',
-      location: '大和高田市',
+      title: 'ユニットバスリフォーム',
+      description: '古い浴槽を撤去し、新しいユニットバスにリフォーム。シャワー機能も充実し、より快適な入浴空間に生まれ変わりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '橿原市',
       completionDate: '2024年2月'
     },
     {
       id: '4',
       category: 'bathroom',
-      title: '浴室の部分リフォーム',
-      description: '浴槽とシャワー部分のみをリフォーム。既存のタイルは活かしつつ、新しい設備に交換しました。',
-      beforeImage: '/images/case-studies/bathroom-before-2.jpg',
-      afterImage: '/images/case-studies/bathroom-after-2.jpg',
-      location: '生駒市',
-      completionDate: '2023年12月'
+      title: '浴室全面リフォーム',
+      description: '浴室の床・壁・天井を全面リフォーム。防水処理も徹底し、長く安心して使用できる浴室にしました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '大和高田市',
+      completionDate: '2024年1月'
     },
     // キッチン
     {
       id: '5',
       category: 'kitchen',
-      title: 'システムキッチンの導入',
-      description: '古いキッチンをシステムキッチンに全面リフォーム。IHクッキングヒーターと食器洗い乾燥機を導入し、使いやすさを大幅に向上させました。',
-      beforeImage: '/images/case-studies/kitchen-before-1.jpg',
-      afterImage: '/images/case-studies/kitchen-after-1.jpg',
-      location: '橿原市',
-      completionDate: '2024年4月'
+      title: 'システムキッチンリフォーム',
+      description: '古いキッチンを撤去し、最新のシステムキッチンにリフォーム。作業効率が大幅に向上し、料理が楽しくなりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '生駒市',
+      completionDate: '2024年3月'
     },
     {
       id: '6',
       category: 'kitchen',
-      title: 'キッチンの部分リフォーム',
-      description: 'コンロとシンク部分のみをリフォーム。既存のキャビネットは活かしつつ、新しい設備に交換しました。',
-      beforeImage: '/images/case-studies/kitchen-before-2.jpg',
-      afterImage: '/images/case-studies/kitchen-after-2.jpg',
-      location: '大和郡山市',
-      completionDate: '2023年11月'
+      title: 'キッチン設備更新',
+      description: 'キッチンの設備を最新のものに更新。IHクッキングヒーターや食器洗い乾燥機も導入し、より便利なキッチンになりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '天理市',
+      completionDate: '2024年2月'
     },
     // トイレ
     {
       id: '7',
       category: 'toilet',
-      title: '温水洗浄便座の導入',
-      description: '通常の便器から温水洗浄便座に変更。節水機能付きで、快適性と環境配慮を両立しました。',
-      beforeImage: '/images/case-studies/toilet-before-1.jpg',
-      afterImage: '/images/case-studies/toilet-after-1.jpg',
-      location: '天理市',
+      title: 'トイレ全面リフォーム',
+      description: '古いトイレを撤去し、最新の温水洗浄便座付きトイレにリフォーム。快適で清潔な空間に生まれ変わりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '大和郡山市',
       completionDate: '2024年1月'
     },
     {
       id: '8',
       category: 'toilet',
-      title: 'トイレの全面リフォーム',
-      description: '古いトイレを全面リフォーム。温水洗浄便座と節水機能付きの便器に変更し、壁紙も明るい色に変更しました。',
-      beforeImage: '/images/case-studies/toilet-before-2.jpg',
-      afterImage: '/images/case-studies/toilet-after-2.jpg',
+      title: 'トイレ設備更新',
+      description: 'トイレの便器とタンクを最新のものに更新。節水機能も充実し、環境にも配慮したトイレになりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
       location: '奈良市',
-      completionDate: '2023年10月'
+      completionDate: '2024年3月'
     },
     // 洗面台
     {
       id: '9',
       category: 'sink',
-      title: '洗面台のリフォーム',
-      description: '古い洗面台を新しいデザインに変更。収納も充実させ、使いやすさを向上させました。',
-      beforeImage: '/images/case-studies/sink-before-1.jpg',
-      afterImage: '/images/case-studies/sink-after-1.jpg',
+      title: '洗面台リフォーム',
+      description: '古い洗面台を撤去し、新しい洗面台にリフォーム。収納も充実し、より使いやすい洗面所になりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
       location: '広陵町',
       completionDate: '2024年2月'
     },
     {
       id: '10',
       category: 'sink',
-      title: '洗面台と鏡のリフォーム',
-      description: '洗面台と鏡を新しいデザインに変更。LED照明付きの鏡で、明るく使いやすい空間にしました。',
-      beforeImage: '/images/case-studies/sink-before-2.jpg',
-      afterImage: '/images/case-studies/sink-after-2.jpg',
-      location: '大和高田市',
-      completionDate: '2023年12月'
+      title: '洗面所全面リフォーム',
+      description: '洗面所の床・壁・天井を全面リフォーム。洗面台も最新のものに変更し、快適な洗面所に生まれ変わりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '橿原市',
+      completionDate: '2024年1月'
     },
     // フローリング・クロス貼替
     {
       id: '11',
       category: 'flooring',
-      title: 'フローリングの張替え',
-      description: '古いフローリングを新しいデザインに張替え。明るい色合いで、空間がより広く感じられるようになりました。',
-      beforeImage: '/images/case-studies/flooring-before-1.jpg',
-      afterImage: '/images/case-studies/flooring-after-1.jpg',
-      location: '生駒市',
+      title: 'フローリング張替え',
+      description: '古いフローリングを撤去し、新しいフローリングに張替え。床の傷や汚れがなくなり、部屋が明るくなりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '大和高田市',
       completionDate: '2024年3月'
     },
     {
       id: '12',
       category: 'flooring',
-      title: '壁紙とフローリングの同時リフォーム',
-      description: '壁紙とフローリングを同時にリフォーム。統一感のあるデザインで、空間全体の印象を向上させました。',
-      beforeImage: '/images/case-studies/flooring-before-2.jpg',
-      afterImage: '/images/case-studies/flooring-after-2.jpg',
-      location: '橿原市',
-      completionDate: '2024年1月'
+      title: 'クロス張替え',
+      description: '壁紙を全面張替え。明るい色のクロスに変更することで、部屋が明るく快適な空間に生まれ変わりました。',
+      beforeImage: '/api/placeholder/400/300',
+      afterImage: '/api/placeholder/400/300',
+      location: '生駒市',
+      completionDate: '2024年2月'
     }
   ];
 
@@ -243,10 +241,11 @@ export default function CaseStudies() {
                       <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
                         <span className="text-gray-500 text-sm font-semibold">施工前</span>
                       </div>
-                      <img
+                      <Image
                         src={caseStudy.beforeImage}
                         alt="施工前"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
@@ -261,10 +260,11 @@ export default function CaseStudies() {
                       <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
                         <span className="text-gray-500 text-sm font-semibold">施工後</span>
                       </div>
-                      <img
+                      <Image
                         src={caseStudy.afterImage}
                         alt="施工後"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
@@ -331,10 +331,11 @@ export default function CaseStudies() {
                 <div>
                   <h3 className="text-lg font-semibold mb-2 text-red-600">施工前</h3>
                   <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={selectedCase.beforeImage}
                       alt="施工前"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -349,10 +350,11 @@ export default function CaseStudies() {
                 <div>
                   <h3 className="text-lg font-semibold mb-2 text-green-600">施工後</h3>
                   <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={selectedCase.afterImage}
                       alt="施工後"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';

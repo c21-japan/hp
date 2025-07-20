@@ -110,7 +110,7 @@ export default function About() {
               
               <p className="mb-6">
                 私は奈良県で生まれ育ち、この大好きな地元に恩返しがしたいという想いから、不動産業界に飛び込みました。2014年、28歳の時にホームマートを創業した当初は、小さな店舗からのスタートでした。しかし
-                <span className="text-yellow-600 font-semibold">"住まいに新たな価値を、生涯の安心を"</span>
+                <span className="text-yellow-600 font-semibold">&ldquo;住まいに新たな価値を、生涯の安心を&rdquo;</span>
                 という理念のもと、中古住宅の再生やリフォーム提案を通じて、お客様の暮らしをより良いものにするお手伝いに邁進してまいりました。
               </p>
               

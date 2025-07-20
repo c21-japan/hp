@@ -8,10 +8,10 @@ import {
   ChevronUp, 
   Phone, 
   MessageCircle,
-  Star,
-  Calculator,
-  Home,
-  Wrench
+  CheckCircle,
+  Award,
+  Clock,
+  User
 } from 'lucide-react';
 
 interface FAQItem {
@@ -98,10 +98,10 @@ export default function FAQ() {
 
   const categories = [
     { id: 'all', name: 'すべて', icon: HelpCircle },
-    { id: 'buy', name: '買取・売却', icon: Calculator },
-    { id: 'sell', name: '物件購入', icon: Home },
-    { id: 'renovation', name: 'リフォーム', icon: Wrench },
-    { id: 'other', name: 'その他', icon: HelpCircle }
+    { id: 'buy', name: '買取・売却', icon: CheckCircle },
+    { id: 'sell', name: '物件購入', icon: User },
+    { id: 'renovation', name: 'リフォーム', icon: Award },
+    { id: 'other', name: 'その他', icon: Clock }
   ];
 
   const filteredItems = selectedCategory === 'all' 
@@ -243,12 +243,12 @@ export default function FAQ() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/sell" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <Calculator className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
+              <CheckCircle className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">家を売る</h3>
               <p className="text-gray-600">無料査定から売却まで、丁寧にサポートいたします</p>
             </Link>
             <Link href="/renovation" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <Wrench className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
+              <Award className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">リフォーム</h3>
               <p className="text-gray-600">自社施工で品質とコストの両立を実現</p>
             </Link>

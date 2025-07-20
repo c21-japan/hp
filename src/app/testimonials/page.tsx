@@ -1,14 +1,11 @@
-import Link from 'next/link';
 import { 
   Star, 
-  Heart, 
-  Quote, 
   Phone, 
-  Mail, 
-  MapPin,
-  CheckCircle,
-  Award,
-  Building,
+  MessageCircle, 
+  CheckCircle, 
+  Award, 
+  Shield, 
+  Clock, 
   Users
 } from 'lucide-react';
 
@@ -86,7 +83,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <div className="relative">
-                <Quote className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
+                <MessageCircle className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
                 <p className="text-gray-700 leading-relaxed pl-4">
                   転勤まで時間がなく、すぐに売却したいという無理なお願いにも関わらず、ホームマートさんは迅速に対応してくださいました。
                   無料査定から1週間で買取のご提案をいただき、そのスピード感に驚きました。
@@ -117,7 +114,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <div className="relative">
-                <Quote className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
+                <MessageCircle className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
                 <p className="text-gray-700 leading-relaxed pl-4">
                   築年数が経った自宅の売却でお世話になりました。他社では買い手探しに時間がかかると言われ不安でしたが、
                   ホームマートさんはURICO制度で直接買取をご提案くださり、すぐに話がまとまりました。
@@ -150,7 +147,7 @@ export default function Testimonials() {
             <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
               <div className="flex items-start mb-4">
                 <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <Building className="h-6 w-6 text-yellow-600" />
+                  <Users className="h-6 w-6 text-yellow-600" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">大和高田市在住 K様</h3>
@@ -165,7 +162,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <div className="relative">
-                <Quote className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
+                <MessageCircle className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
                 <p className="text-gray-700 leading-relaxed pl-4">
                   古いマンションを自分好みにリノベーションするという夢を叶えるため、ホームマートさんに相談しました。
                   物件探しの段階からリフォーム前提で最適な間取りを一緒に考えてくださり、とても心強かったです。
@@ -182,7 +179,7 @@ export default function Testimonials() {
             <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
               <div className="flex items-start mb-4">
                 <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <Heart className="h-6 w-6 text-yellow-600" />
+                  <Users className="h-6 w-6 text-yellow-600" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">香芝市在住 S様</h3>
@@ -197,7 +194,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <div className="relative">
-                <Quote className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
+                <MessageCircle className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
                 <p className="text-gray-700 leading-relaxed pl-4">
                   初めてのマイホーム探しで分からないことだらけでしたが、担当の方が資金計画から住宅ローンの手続きまで親身にサポートしてくれました。
                   夜遅い時間帯でもLINEで質問に答えてくださり、忙しい私たち夫婦には大変助かりました。
@@ -244,7 +241,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <div className="relative">
-                <Quote className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
+                <MessageCircle className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
                 <p className="text-gray-700 leading-relaxed pl-4">
                   実家の空き家状態だった戸建てをリフォームして賃貸に出そうと、ホームマートさんに相談しました。
                   自社施工店をお持ちとのことで安心してお任せ。古い和室を洋室に変え、水回りも一新していただきました。
@@ -276,7 +273,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <div className="relative">
-                <Quote className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
+                <MessageCircle className="h-6 w-6 text-yellow-200 absolute -top-2 -left-2" />
                 <p className="text-gray-700 leading-relaxed pl-4">
                   築20年のマンションのキッチンをリフォームしました。最初は不安でしたが、
                   ホームマートさんの担当者が丁寧にプランを説明してくださり、予算内で理想のキッチンが実現できました。
@@ -320,7 +317,7 @@ export default function Testimonials() {
             </div>
 
             <div className="text-center p-6 bg-yellow-50 rounded-lg border border-yellow-200">
-              <Heart className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
+              <Users className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">お客様満足度</h3>
               <p className="text-gray-600">98%</p>
               <p className="text-sm text-gray-500 mt-2">2024年度実績</p>
@@ -339,13 +336,13 @@ export default function Testimonials() {
             お客様の声のように、あなたの住まいの夢も叶えるお手伝いをいたします
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
+            <a
+              href="tel:0120-43-8639"
               className="bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
             >
               <Phone className="mr-2 h-5 w-5" />
               お問い合わせ
-            </Link>
+            </a>
             <a
               href="tel:0120-43-8639"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors"

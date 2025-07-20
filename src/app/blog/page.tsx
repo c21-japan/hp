@@ -3,14 +3,10 @@ import {
   Calendar, 
   User, 
   ArrowRight, 
-  Search, 
-  Tag, 
-  Star,
-  Heart,
+  Search,
   Building,
   Award,
-  MapPin,
-  Phone
+  MapPin
 } from 'lucide-react';
 
 export default function Blog() {

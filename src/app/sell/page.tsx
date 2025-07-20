@@ -1,17 +1,15 @@
 import Link from 'next/link';
 import { 
+  Home, 
   Building, 
-  Calculator, 
-  Users, 
   Phone, 
-  ArrowRight, 
+  MessageCircle, 
   CheckCircle, 
-  MessageCircle,
-  Shield,
-  Award,
-  Clock,
-  Star,
-  MapPin
+  Award, 
+  Shield, 
+  Star, 
+  Calculator,
+  Users
 } from 'lucide-react';
 
 export default function Sell() {

@@ -5,12 +5,10 @@ import { useParams, useRouter } from 'next/navigation';
 import { 
   MapPin, 
   Home, 
-  Building, 
   Phone, 
   MessageCircle, 
   ArrowLeft,
   CheckCircle,
-  Star,
   Calendar,
   Users,
   Car,
@@ -49,7 +47,6 @@ interface Property {
 
 export default function PropertyDetail() {
   const params = useParams();
-  const router = useRouter();
   const [showInquiryModal, setShowInquiryModal] = useState(false);
 
   // 物件データ（実際の実装ではAPIから取得）

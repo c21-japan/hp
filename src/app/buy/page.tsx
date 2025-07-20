@@ -8,7 +8,6 @@ import {
   Building, 
   MapPin, 
   ArrowRight, 
-  Star, 
   Phone, 
   MessageCircle,
   CheckCircle,

@@ -17,7 +17,7 @@ const Navigation = () => {
 
   // ドロップダウンメニューが開いている時に他の場所をクリックしたら閉じる
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = () => {
       if (buyDropdownOpen) {
         setBuyDropdownOpen(false);
       }

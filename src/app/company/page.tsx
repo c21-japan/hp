@@ -7,7 +7,6 @@ import {
   Calendar, 
   Users, 
   Award, 
-  Star,
   CheckCircle,
   Clock,
   Shield,
@@ -45,9 +44,9 @@ export default function Company() {
             </h2>
             <div className="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
               <p className="mb-6">
-                センチュリー21ホームマートは、奈良県広陵町に拠点を置く不動産会社です。
-                <span className="text-yellow-600 font-semibold">"住まいを通じて地域に笑顔を"</span>
-                という理念のもと、2014年の創業以来、広陵町・大和高田市・葛城市エリアに密着したサービスを提供してまいりました。
+                センチュリー21ホームマートは、奈良県広陵町に本社を置く不動産会社です。
+                センチュリー21の全国ネットワークを活用しながら、地域密着型のサービスを提供しています。
+                &ldquo;お客様の笑顔が私たちの原動力&rdquo;をモットーに、誠実で丁寧な対応を心がけています。
               </p>
               <p className="mb-6">
                 不動産の売買仲介から自社買取による再販、リフォーム提案まで、住まいに関するあらゆるニーズにワンストップでお応えできる体制が私たちの強みです。

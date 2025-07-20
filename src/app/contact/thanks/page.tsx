@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { CheckCircle, Phone, MessageCircle, ArrowRight, Home, Mail } from 'lucide-react';
+import { CheckCircle, Phone, MessageCircle, Home, Mail } from 'lucide-react';
 
 export default function ContactThanks() {
   return (

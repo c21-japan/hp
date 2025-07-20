@@ -1,20 +1,16 @@
 import Link from 'next/link';
 import { 
-  Award, 
-  Users, 
-  Shield, 
-  Clock, 
-  Phone, 
-  ArrowRight, 
+  Star, 
   CheckCircle, 
-  MapPin, 
-  Globe, 
-  Wrench, 
-  Heart, 
-  Star,
-  Building,
-  Home,
-  MessageCircle
+  Award, 
+  Shield, 
+  Phone, 
+  MessageCircle,
+  Calculator,
+  Heart,
+  MapPin,
+  Globe,
+  Wrench
 } from 'lucide-react';
 
 export default function WhyChooseUs() {

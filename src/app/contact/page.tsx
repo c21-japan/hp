@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, useMemo } from 'react';
 import { Phone, Mail, MapPin, Send, Clock, MessageCircle, Building, ExternalLink } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function Contact() {
+function ContactForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
@@ -20,10 +20,18 @@ export default function Contact() {
 
   const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [propertyInfo, setPropertyInfo] = useState<any>(null);
+  const [propertyInfo, setPropertyInfo] = useState<{
+    id: number;
+    title: string;
+    location: string;
+    price: string;
+    type: string;
+    size: string;
+    age: string;
+  } | null>(null);
 
   // 物件情報（実際の実装ではAPIから取得）
-  const properties = [
+  const properties = useMemo(() => [
     {
       id: 1,
       title: '新築戸建て',
@@ -51,7 +59,7 @@ export default function Contact() {
       size: '150㎡',
       age: '角地'
     }
-  ];
+  ], []);
 
   useEffect(() => {
     // URLパラメータから物件IDを取得
@@ -78,7 +86,7 @@ export default function Contact() {
         }));
       }
     }
-  }, [searchParams]);
+  }, [searchParams, properties]);
 
   const validateForm = () => {
     const newErrors: {[key: string]: string} = {};
@@ -507,5 +515,13 @@ export default function Contact() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Contact() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ContactForm />
+    </Suspense>
   );
 } 

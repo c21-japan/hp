@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { 
   Home as HomeIcon, 
   Building, 
-  Users, 
   Phone, 
   ArrowRight, 
   MapPin, 
@@ -15,14 +14,10 @@ import {
   CheckCircle,
   Award,
   Clock,
-  Heart,
-  HelpCircle,
   ChevronDown,
   ChevronUp,
   Calendar,
-  User,
-  Search,
-  Tag
+  User
 } from 'lucide-react';
 import { useState } from 'react';
 import PropertyModal from '@/components/PropertyModal';

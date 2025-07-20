@@ -6,13 +6,9 @@ import {
   Wrench, 
   DollarSign, 
   RotateCcw, 
-  TrendingUp, 
-  Share2, 
   Building, 
-  Star,
   Lightbulb,
   CheckCircle,
-  ArrowRight,
   Phone,
   MessageCircle
 } from 'lucide-react';
@@ -79,8 +75,9 @@ export default function Comparison() {
               <Home className="inline mr-4 h-12 w-12 animate-bounce" />
               当社と他社の違い
             </h1>
-            <p className="text-xl mb-8 text-yellow-100">
-              "高く買って安く売る" — 当社と他社の決定的な違い
+            <p className="text-lg text-gray-600 mb-8">
+              不動産売却で最も重要なのは、&ldquo;適正価格での迅速な売却&rdquo;です。
+              当社では、お客様の大切な不動産を適正価格で買い取り、スピーディーに現金化いたします。
             </p>
           </div>
         </div>
@@ -124,7 +121,7 @@ export default function Comparison() {
             <div className="bg-white rounded-lg shadow-lg p-8">
               <div className="text-center mb-8">
                 <div className="bg-yellow-600 text-white p-6 rounded-lg mb-4">
-                  <Star className="h-8 w-8 mx-auto mb-2" />
+                  <Home className="h-8 w-8 mx-auto mb-2" />
                   <h2 className="text-2xl font-bold">当社</h2>
                   <p className="text-yellow-100">革新的なビジネスモデル</p>
                 </div>
