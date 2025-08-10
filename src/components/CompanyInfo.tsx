@@ -4,19 +4,19 @@ import { MapPin, Phone, Mail, Clock, Award, Building, Users, Target } from 'luci
 
 const CompanyInfo = () => {
   const companyData = {
-    name: 'センチュリー21 株式会社ベース',
-    nameKana: 'センチュリー21 カブシキガイシャ ベース',
-    address: '奈良県北葛城郡河合町中山台２丁目12-9',
-    phone: '0745-34-0021',
-    fax: '0745-34-0022',
-    businessHours: '9：00～19：00',
-    holidays: '年末年始',
-    license: '奈良県知事 (1) 第4482号',
+    name: 'センチュリー21 ホームマート',
+    nameKana: 'センチュリー21 ホームマート',
+    address: '奈良県北葛城郡広陵町笠287-1',
+    phone: '0120-43-8639',
+    fax: '050-3183-9576',
+    businessHours: '9：00～22：00',
+    holidays: '毎週水曜日',
+    license: '奈良県知事 (1) 第4582号',
     established: '2010年4月',
     capital: '1,000万円',
     employees: '15名',
-    ceo: '京谷 陽介',
-    ceoKana: 'キョウタニ ヨウスケ'
+    ceo: '乾 佑企',
+    ceoKana: 'イヌイ ユウキ'
   };
 
   const services = [
@@ -76,7 +76,7 @@ const CompanyInfo = () => {
                 <MapPin className="h-5 w-5 text-yellow-600 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <span className="font-medium text-gray-900">所在地</span>
-                  <div className="text-gray-700">〒636-0072</div>
+                  <div className="text-gray-700">〒635-0833</div>
                   <div className="text-gray-700">{companyData.address}</div>
                 </div>
               </div>
@@ -217,7 +217,7 @@ const CompanyInfo = () => {
                 <div>
                   <div className="text-gray-700">{companyData.address}</div>
                   <div className="text-sm text-gray-500 mt-1">
-                    最寄り駅：王寺駅より車で約10分
+                    最寄り駅：近鉄「大和高田駅」よりバス15分・「さわやかホール」バス停下車徒歩5分
                   </div>
                 </div>
               </div>

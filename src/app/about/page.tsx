@@ -262,7 +262,7 @@ export default function About() {
                 <Mail className="h-6 w-6 text-yellow-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">メール</h3>
-              <p className="text-gray-600">info@homemart.jp</p>
+              <p className="text-gray-600">info@c21-homemart.com</p>
               <p className="text-sm text-gray-500">24時間受付</p>
             </div>
 
@@ -272,7 +272,7 @@ export default function About() {
               </div>
               <h3 className="text-lg font-semibold mb-2">所在地</h3>
               <p className="text-gray-600">
-                〒635-0821<br />
+                〒635-0833<br />
                 奈良県北葛城郡広陵町笠287-1
               </p>
             </div>

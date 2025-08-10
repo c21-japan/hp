@@ -49,14 +49,14 @@ const Navigation = () => {
             <div className="flex items-center space-x-6">
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-2" />
-                <span className="font-semibold">0745-34-0021</span>
+                <span className="font-semibold">0120-43-8639</span>
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2" />
-                <span>営業時間：9：00～19：00</span>
+                <span>営業時間：9：00～22：00</span>
               </div>
               <div className="hidden sm:block">
-                <span>定休日：年末年始</span>
+                <span>定休日：毎週水曜日</span>
               </div>
             </div>
             <div className="flex items-center space-x-4 mt-2 sm:mt-0">

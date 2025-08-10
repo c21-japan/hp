@@ -152,7 +152,7 @@ export default function Company() {
                   <div>
                     <p className="font-semibold text-gray-900">所在地</p>
                     <p className="text-gray-600">
-                      〒635-0821<br />
+                      〒635-0833<br />
                       奈良県北葛城郡広陵町笠287-1<br />
                       <span className="text-sm text-gray-500">
                         近鉄「大和高田駅」よりバス15分・「さわやかホール」バス停下車徒歩5分

@@ -192,8 +192,8 @@ export default function Home() {
           <div>〒635-0821 奈良県北葛城郡広陵町笠287-1</div>
           <div>
             電話番号：
-            <a href="tel:050-7117-7107" className="underline">
-              050-7117-7107
+            <a href="tel:0120-43-8639" className="underline">
+              0120-43-8639
             </a>
           </div>
           <div>代表：乾 佑企</div>

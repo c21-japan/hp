@@ -26,8 +26,8 @@ const StaffSection = () => {
       description: '長期的な視点で物事に取り組むのが得意で、任されたことは最後まで責任を持って取り組みます。お客様のご要望を丁寧にお聞きし、最適なご提案をさせていただきます。',
       specialties: ['戸建て物件', 'マンション物件', '土地物件'],
       image: '/api/placeholder/200/200',
-      phone: '0745-34-0021',
-      email: 'tsujimoto@c21-base.co.jp',
+      phone: '0120-43-8639',
+      email: 'info@c21-homemart.com',
       experience: '不動産業界10年以上',
       certifications: ['宅地建物取引士', '不動産コンサルティングマスター']
     },
@@ -39,8 +39,8 @@ const StaffSection = () => {
       description: '私は、明るくどんな状況でも前向きに考えることを意識しており、お客様の不安やご心配を解消できるよう努めております。不動産のプロとして、お客様の理想の住まい探しをサポートいたします。',
       specialties: ['新築物件', '中古物件', '投資物件'],
       image: '/api/placeholder/200/200',
-      phone: '0745-34-0021',
-      email: 'kobayashi@c21-base.co.jp',
+      phone: '0120-43-8639',
+      email: 'info@c21-homemart.com',
       experience: '不動産業界8年以上',
       certifications: ['宅地建物取引士', 'FP技能士']
     }
