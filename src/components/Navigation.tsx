@@ -2,24 +2,24 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, MessageCircle, Home, Building, MapPin, Clock } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [buyDropdownOpen, setBuyDropdownOpen] = useState(false);
+  const [propertyDropdownOpen, setPropertyDropdownOpen] = useState(false);
 
-  const buyMenuItems = [
-    { name: '新築一戸建て', href: '/buy/new-house' },
-    { name: '中古戸建て', href: '/buy/used-house' },
-    { name: '中古マンション', href: '/buy/used-mansion' },
-    { name: '土地', href: '/buy/land' },
+  const propertyMenuItems = [
+    { name: '中古戸建て', href: '/buy/used-house', icon: Home },
+    { name: '新築戸建て', href: '/buy/new-house', icon: Home },
+    { name: 'マンション', href: '/buy/mansion', icon: Building },
+    { name: '土地', href: '/buy/land', icon: MapPin },
   ];
 
   // ドロップダウンメニューが開いている時に他の場所をクリックしたら閉じる
   useEffect(() => {
     const handleClickOutside = () => {
-      if (buyDropdownOpen) {
-        setBuyDropdownOpen(false);
+      if (propertyDropdownOpen) {
+        setPropertyDropdownOpen(false);
       }
     };
 
@@ -27,21 +27,51 @@ const Navigation = () => {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [buyDropdownOpen]);
+  }, [propertyDropdownOpen]);
 
-  const handleBuyDropdownClick = (e: React.MouseEvent) => {
+  const handlePropertyDropdownClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setBuyDropdownOpen(!buyDropdownOpen);
+    setPropertyDropdownOpen(!propertyDropdownOpen);
   };
 
   // メニュー項目をクリックした時にメニューを閉じる
   const handleMenuClick = () => {
     setIsOpen(false);
-    setBuyDropdownOpen(false);
+    setPropertyDropdownOpen(false);
   };
 
   return (
     <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+      {/* 上部連絡先情報バー */}
+      <div className="bg-yellow-600 text-white py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center">
+                <Phone className="h-4 w-4 mr-2" />
+                <span className="font-semibold">0745-34-0021</span>
+              </div>
+              <div className="flex items-center">
+                <Clock className="h-4 w-4 mr-2" />
+                <span>営業時間：9：00～19：00</span>
+              </div>
+              <div className="hidden sm:block">
+                <span>定休日：年末年始</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4 mt-2 sm:mt-0">
+              <Link href="/login" className="hover:text-yellow-200 transition-colors">
+                ログイン
+              </Link>
+              <Link href="/favorites" className="hover:text-yellow-200 transition-colors">
+                お気に入り
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* メインナビゲーション */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -57,23 +87,41 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/buy" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-              買いたい方
-            </Link>
+            {/* 物件種別ドロップダウン */}
+            <div className="relative">
+              <button
+                onClick={handlePropertyDropdownClick}
+                className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center"
+              >
+                物件を探す
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${propertyDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {propertyDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                  {propertyMenuItems.map((item) => {
+                    const IconComponent = item.icon;
+                    return (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 transition-colors"
+                        onClick={handleMenuClick}
+                      >
+                        <IconComponent className="mr-2 h-4 w-4" />
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
             <Link href="/sell" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
               売りたい方
             </Link>
             <Link href="/renovation" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
               リフォーム
-            </Link>
-            <Link href="/comparison" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-              当社と他社の違い
-            </Link>
-            <Link href="/why-choose-us" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-              選ばれる理由
-            </Link>
-            <Link href="/about" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-              責任者紹介
             </Link>
             <Link href="/company" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
               会社概要
@@ -120,23 +168,30 @@ const Navigation = () => {
       {isOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
-            <Link href="/buy" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium transition-colors" onClick={handleMenuClick}>
-              買いたい方
-            </Link>
+            {/* 物件種別メニュー */}
+            <div className="bg-gray-50 px-3 py-2 rounded-md">
+              <div className="text-sm font-medium text-gray-700 mb-2">物件を探す</div>
+              {propertyMenuItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-yellow-600 transition-colors"
+                    onClick={handleMenuClick}
+                  >
+                    <IconComponent className="mr-2 h-4 w-4" />
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+
             <Link href="/sell" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium transition-colors" onClick={handleMenuClick}>
               売りたい方
             </Link>
             <Link href="/renovation" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium transition-colors" onClick={handleMenuClick}>
               リフォーム
-            </Link>
-            <Link href="/comparison" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium transition-colors" onClick={handleMenuClick}>
-              当社と他社の違い
-            </Link>
-            <Link href="/why-choose-us" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium transition-colors" onClick={handleMenuClick}>
-              選ばれる理由
-            </Link>
-            <Link href="/about" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium transition-colors" onClick={handleMenuClick}>
-              責任者紹介
             </Link>
             <Link href="/company" className="bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium transition-colors" onClick={handleMenuClick}>
               会社概要

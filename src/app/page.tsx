@@ -21,6 +21,8 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import PropertyModal from '@/components/PropertyModal';
+import UpdateInfo from '@/components/UpdateInfo';
+import PropertyDisplay from '@/components/PropertyDisplay';
 
 interface Property {
   id: number;
@@ -344,6 +346,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Property Statistics Section */}
+      <section className="py-8 bg-yellow-50 border-t border-yellow-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">999件</div>
+              <div className="text-sm text-yellow-600">掲載物件数</div>
+            </div>
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">998件</div>
+              <div className="text-sm text-yellow-600">公開物件数</div>
+            </div>
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">527件</div>
+              <div className="text-sm text-yellow-600">本日の更新物件数</div>
+            </div>
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">0件</div>
+              <div className="text-sm text-yellow-600">会員物件数</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Buy Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -356,49 +382,50 @@ export default function Home() {
 
           {/* Search Form */}
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h3 className="text-xl font-semibold mb-4">条件を指定して検索</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">エリア</label>
-                <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                  <option value="">エリアを選択</option>
-                  <optgroup label="奈良県">
-                    <option value="nara">奈良市</option>
-                    <option value="yamato-koriyama">大和郡山市</option>
-                    <option value="yamato-takada">大和高田市</option>
-                    <option value="kashihara">橿原市</option>
-                    <option value="ikoma">生駒市</option>
-                    <option value="tenri">天理市</option>
-                    <option value="koryo">広陵町</option>
-                    <option value="kashiba">香芝市</option>
-                    <option value="gose">御所市</option>
-                    <option value="uda">宇陀市</option>
-                    <option value="yamatokooriyama">大和郡山市</option>
-                    <option value="shiki">磯城郡</option>
-                    <option value="kitakatsuragi">北葛城郡</option>
-                    <option value="takaichi">高市郡</option>
-                    <option value="yoshino">吉野郡</option>
-                    <option value="udagawa">宇陀郡</option>
-                  </optgroup>
-                  <optgroup label="大阪府">
-                    <option value="kishiwada">岸和田市</option>
-                    <option value="izumi">和泉市</option>
-                    <option value="sakai">堺市</option>
-                    <option value="tondabayashi">富田林市</option>
-                    <option value="kawachinagano">河内長野市</option>
-                    <option value="matsubara">松原市</option>
-                    <option value="daito">大東市</option>
-                    <option value="izumisano">泉佐野市</option>
-                    <option value="kaizuka">貝塚市</option>
-                    <option value="sennan">泉南市</option>
-                    <option value="tadaoka">忠岡町</option>
-                    <option value="kumatori">熊取町</option>
-                    <option value="tajiri">田尻町</option>
-                    <option value="sennan-gun">泉南郡</option>
-                    <option value="senboku-gun">泉北郡</option>
-                  </optgroup>
-                </select>
+            <h3 className="text-xl font-semibold mb-4">物件検索</h3>
+            
+            {/* フリーワード検索 */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">フリーワード検索</label>
+              <input
+                type="text"
+                placeholder="駅名、エリア名、物件名など"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 text-lg"
+              />
+            </div>
+
+            {/* 主要駅から探す */}
+            <div className="mb-6">
+              <h4 className="text-sm font-medium text-gray-700 mb-3">主要駅から探す</h4>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+                {['高田駅', '王寺駅', '橿原神宮前駅', '大和八木駅', '桜井駅', '生駒駅', '大和高田駅', '香芝駅', '柏原駅', '大和朝倉駅'].map((station) => (
+                  <button
+                    key={station}
+                    className="px-3 py-2 text-sm border border-gray-300 rounded-md hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                  >
+                    {station}
+                  </button>
+                ))}
               </div>
+            </div>
+
+            {/* 主要エリアから探す */}
+            <div className="mb-6">
+              <h4 className="text-sm font-medium text-gray-700 mb-3">主要エリアから探す</h4>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+                {['橿原市', '大和高田市', '香芝市', '生駒市', '北葛城郡王寺町', '桜井市', '大和郡山市', '天理市', '北葛城郡河合町', '磯城郡川西町'].map((area) => (
+                  <button
+                    key={area}
+                    className="px-3 py-2 text-sm border border-gray-300 rounded-md hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                  >
+                    {area}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 詳細条件検索 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">物件種別</label>
                 <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
@@ -422,8 +449,24 @@ export default function Home() {
                   <option value="3000-">30,000,000円以上</option>
                 </select>
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">沿線</label>
+                <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                  <option value="">沿線を選択</option>
+                  <option value="kintetsu-osaka">近鉄大阪線</option>
+                  <option value="kintetsu-sakurai">桜井線</option>
+                  <option value="kintetsu-kashihara">近鉄橿原線</option>
+                  <option value="wakayama">和歌山線</option>
+                  <option value="kansai">関西本線</option>
+                  <option value="kintetsu-tawaramoto">近鉄田原本線</option>
+                  <option value="kintetsu-ikoma">近鉄生駒線</option>
+                  <option value="kintetsu-minami-osaka">近鉄南大阪線</option>
+                  <option value="kintetsu-namba-nara">近鉄難波・奈良線</option>
+                  <option value="kintetsu-gose">近鉄御所線</option>
+                </select>
+              </div>
               <div className="flex items-end">
-                <button className="w-full bg-yellow-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-yellow-700 transition-colors">
+                <button className="w-full bg-yellow-600 text-white py-3 px-6 rounded-md font-semibold hover:bg-yellow-700 transition-colors text-lg">
                   検索する
                 </button>
               </div>
@@ -432,25 +475,45 @@ export default function Home() {
 
           {/* Property Categories */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="/buy/new-house" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <HomeIcon className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">新築一戸建て</h3>
-              <p className="text-gray-600">新築の一戸建て住宅をご紹介します</p>
+            <Link href="/buy/new-house" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center group">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-200 transition-colors">
+                <HomeIcon className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">新築一戸建て</h3>
+              <p className="text-gray-600 text-sm">新築の一戸建て住宅をご紹介します</p>
+              <div className="mt-4 text-yellow-600 font-medium group-hover:text-yellow-700 transition-colors">
+                物件を見る →
+              </div>
             </Link>
-            <Link href="/buy/used-house" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <HomeIcon className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">中古戸建て</h3>
-              <p className="text-gray-600">中古の一戸建て住宅をご紹介します</p>
+            <Link href="/buy/used-house" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center group">
+              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                <HomeIcon className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">中古戸建て</h3>
+              <p className="text-gray-600 text-sm">中古の一戸建て住宅をご紹介します</p>
+              <div className="mt-4 text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
+                物件を見る →
+              </div>
             </Link>
-            <Link href="/buy/used-mansion" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <Building className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">中古マンション</h3>
-              <p className="text-gray-600">中古マンション・アパートをご紹介します</p>
+            <Link href="/buy/used-mansion" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center group">
+              <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                <Building className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">中古マンション</h3>
+              <p className="text-gray-600 text-sm">中古マンション・アパートをご紹介します</p>
+              <div className="mt-4 text-green-600 font-medium group-hover:text-green-700 transition-colors">
+                物件を見る →
+              </div>
             </Link>
-            <Link href="/buy/land" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <MapPin className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">土地</h3>
-              <p className="text-gray-600">住宅用地や投資用土地をご紹介します</p>
+            <Link href="/buy/land" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center group">
+              <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
+                <MapPin className="h-8 w-8 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">土地</h3>
+              <p className="text-gray-600 text-sm">住宅用地や投資用土地をご紹介します</p>
+              <div className="mt-4 text-orange-600 font-medium group-hover:text-orange-700 transition-colors">
+                物件を見る →
+              </div>
             </Link>
           </div>
         </div>
@@ -508,62 +571,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Properties */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">おすすめ物件</h2>
-            <p className="text-lg text-gray-600">奈良県と大阪府内の厳選物件をご紹介</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property) => (
-              <div key={property.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative">
-                  <img
-                    src={property.image}
-                    alt={property.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  {property.highlight && (
-                    <div className="absolute top-2 left-2 bg-yellow-600 text-white px-2 py-1 rounded text-sm font-semibold">
-                      {property.highlight}
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-semibold text-gray-900">{property.title}</h3>
-                    <span className="text-sm text-gray-500">{property.type}</span>
-                  </div>
-                  <p className="text-gray-600 mb-4">{property.location}</p>
-                  <div className="flex justify-between items-center mb-4">
-                    <div className="text-2xl font-bold text-red-600">{property.price}</div>
-                    <div className="text-sm text-gray-500">
-                      {property.size} / {property.age}
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-sm mb-4">{property.description}</p>
-                  <div className="flex space-x-2">
-                    <button
-                      onClick={() => handlePropertyDetail(property)}
-                      className="flex-1 bg-yellow-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-yellow-700 transition-colors text-sm"
-                    >
-                      詳しく見る
-                    </button>
-                    <button
-                      onClick={() => handleInquiry(property)}
-                      className="flex-1 border border-yellow-600 text-yellow-600 py-2 px-4 rounded-md font-semibold hover:bg-yellow-50 transition-colors text-sm"
-                    >
-                      お問い合わせ
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Property Display Section */}
+      <PropertyDisplay />
 
       {/* Customer Testimonials */}
       <section className="py-16 bg-white">
