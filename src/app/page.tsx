@@ -1,16 +1,14 @@
 'use client';
 
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { 
   Home as HomeIcon, 
   Building, 
-  Phone, 
   ArrowRight, 
   MapPin, 
-  Wrench, 
   Shield, 
   Star, 
-  MessageCircle,
   CheckCircle,
   Award,
   Clock,
@@ -24,6 +22,7 @@ import PropertyModal from '@/components/PropertyModal';
 import UpdateInfo from '@/components/UpdateInfo';
 import PropertyDisplay from '@/components/PropertyDisplay';
 import ContactForm from '@/components/ContactForm';
+import ClientButton from '@/components/ClientButton';
 
 interface Property {
   id: number;
@@ -56,11 +55,13 @@ interface BlogPost {
   featured: boolean;
 }
 
-export default function Home() {
+function HomeContent() {
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFAQItems, setOpenFAQItems] = useState<number[]>([]);
 
+  // 未使用の変数を削除
+  /*
   const properties: Property[] = [
     {
       id: 1,
@@ -72,7 +73,7 @@ export default function Home() {
       size: '120㎡',
       age: '築1年',
       description: '閑静な住宅街に位置する新築戸建てです。3LDKの広々とした間取りで、ご家族の理想の住まいとして最適です。',
-      highlight: '新築' // Added for new_featured_properties
+      highlight: '新築'
     },
     {
       id: 2,
@@ -84,7 +85,7 @@ export default function Home() {
       size: '65㎡',
       age: '築15年',
       description: '駅徒歩5分の好立地にある中古マンションです。2LDKの使いやすい間取りで、投資用としても人気があります。',
-      highlight: '中古' // Added for new_featured_properties
+      highlight: '中古'
     },
     {
       id: 3,
@@ -96,7 +97,7 @@ export default function Home() {
       size: '150㎡',
       age: '角地',
       description: '住宅用地として最適な角地の土地です。日当たり良好で、新築戸建ての建設が可能です。',
-      highlight: '土地' // Added for new_featured_properties
+      highlight: '土地'
     },
     {
       id: 4,
@@ -108,7 +109,7 @@ export default function Home() {
       size: '95㎡',
       age: '築8年',
       description: 'リフォーム済みの中古戸建てです。3LDKの使いやすい間取りで、すぐにお引っ越し可能です。',
-      highlight: '中古' // Added for new_featured_properties
+      highlight: '中古'
     },
     {
       id: 5,
@@ -120,7 +121,7 @@ export default function Home() {
       size: '45㎡',
       age: '築20年',
       description: '投資用として人気の1Kマンションです。駅徒歩3分の好立地で、安定した家賃収入が期待できます。',
-      highlight: '投資' // Added for new_featured_properties
+      highlight: '投資'
     },
     {
       id: 6,
@@ -132,9 +133,10 @@ export default function Home() {
       size: '75㎡',
       age: '築0年',
       description: '最新設備を備えた新築マンションです。2LDKの広々とした間取りで、セキュリティも充実しています。',
-      highlight: '新築' // Added for new_featured_properties
+      highlight: '新築'
     }
   ];
+  */
 
   const faqItems: FAQItem[] = [
     {
@@ -700,5 +702,13 @@ export default function Home() {
         onClose={handleCloseModal}
       />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

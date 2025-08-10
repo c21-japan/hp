@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { 
   Home, 
@@ -14,7 +15,7 @@ import {
 } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 
-export default function Comparison() {
+function ComparisonContent() {
   const comparisonItems = [
     {
       label: '買取価格',
@@ -251,5 +252,13 @@ export default function Comparison() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function Comparison() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ComparisonContent />
+    </Suspense>
   );
 } 

@@ -1,20 +1,23 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { 
-  Building, 
-  MapPin, 
   Phone, 
-  Mail, 
-  Calendar, 
-  Users, 
-  Award, 
+  MessageCircle, 
+  MapPin, 
+  Clock, 
+  Mail,
+  Award,
+  Users,
+  Target,
+  Heart,
+  Building,
+  Star,
   CheckCircle,
-  Clock,
-  Shield,
-  Heart
+  Quote
 } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 
-export default function Company() {
+function CompanyContent() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
@@ -115,7 +118,7 @@ export default function Company() {
                 </div>
 
                 <div className="flex items-start">
-                  <Calendar className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
+                  <Clock className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900">設立</p>
                     <p className="text-gray-600">2014年6月</p>
@@ -179,7 +182,7 @@ export default function Company() {
                 </div>
 
                 <div className="flex items-start">
-                  <Shield className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900">免許番号</p>
                     <p className="text-gray-600">奈良県知事(1)第4582号</p>
@@ -351,5 +354,13 @@ export default function Company() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function Company() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CompanyContent />
+    </Suspense>
   );
 } 

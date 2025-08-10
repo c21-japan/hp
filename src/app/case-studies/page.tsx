@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -29,7 +29,7 @@ interface CaseStudy {
   staff?: string;
 }
 
-export default function CaseStudies() {
+function CaseStudiesContent() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
 
@@ -398,5 +398,13 @@ export default function CaseStudies() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function CaseStudies() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CaseStudiesContent />
+    </Suspense>
   );
 } 

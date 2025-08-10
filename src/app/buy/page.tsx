@@ -1,21 +1,24 @@
 'use client';
 
-import Link from 'next/link';
+import { Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { 
-  Search, 
   Home, 
   Building, 
   MapPin, 
-  ArrowRight, 
+  Search, 
+  Filter, 
+  Star, 
+  Heart, 
+  Share2, 
   Phone, 
   MessageCircle,
-  CheckCircle,
-  Wrench,
   Award,
+  Wrench,
   Clock
 } from 'lucide-react';
-import { useState } from 'react';
 import ContactForm from '@/components/ContactForm';
 
 interface Property {
@@ -32,7 +35,7 @@ interface Property {
   description: string;
 }
 
-export default function Buy() {
+function BuyContent() {
   const router = useRouter();
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [showInquiryModal, setShowInquiryModal] = useState(false);
@@ -158,6 +161,24 @@ export default function Buy() {
   const handleInquiry = (property: Property) => {
     setSelectedProperty(property);
     setShowInquiryModal(true);
+  };
+
+  const handleInquirySubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const phone = formData.get('phone') as string;
+    const message = formData.get('message') as string;
+    
+    // ここでフォームデータを処理（例：APIに送信、メール送信など）
+    console.log('Inquiry submitted:', { name, email, phone, message, property: selectedProperty });
+    
+    // モーダルを閉じる
+    setShowInquiryModal(false);
+    
+    // 成功メッセージを表示（必要に応じて）
+    alert('お問い合わせありがとうございます。担当者よりご連絡いたします。');
   };
 
   return (
@@ -308,7 +329,7 @@ export default function Buy() {
                   <p className="text-gray-600 mb-4">{category.description}</p>
                   <div className="flex items-center text-yellow-600 font-medium">
                     詳しく見る
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    {/* <ArrowRight className="ml-2 h-4 w-4" /> */}
                   </div>
                 </Link>
               );
@@ -361,7 +382,7 @@ export default function Buy() {
                   <div className="mb-4">
                     {property.features.map((feature, index) => (
                       <div key={index} className="flex items-center mb-1">
-                        <CheckCircle className="h-3 w-3 text-yellow-600 mr-2" />
+                        {/* <CheckCircle className="h-3 w-3 text-yellow-600 mr-2" /> */}
                         <span className="text-xs text-gray-600">{feature}</span>
                       </div>
                     ))}
@@ -392,7 +413,7 @@ export default function Buy() {
               className="inline-flex items-center bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors"
             >
               お問い合わせ
-              <ArrowRight className="ml-2 h-5 w-5" />
+              {/* <ArrowRight className="ml-2 h-5 w-5" /> */}
             </Link>
           </div>
         </div>
@@ -505,5 +526,13 @@ export default function Buy() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function Buy() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BuyContent />
+    </Suspense>
   );
 } 

@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { 
   Calendar, 
@@ -10,7 +11,7 @@ import {
 } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 
-export default function Blog() {
+function BlogContent() {
   const blogPosts = [
     {
       id: 1,
@@ -440,5 +441,13 @@ export default function Blog() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function Blog() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BlogContent />
+    </Suspense>
   );
 } 

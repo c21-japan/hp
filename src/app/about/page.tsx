@@ -1,19 +1,19 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { 
   Phone, 
-  Mail, 
+  MessageCircle, 
   MapPin, 
-  Award, 
-  Users, 
-  Building,
-  Star,
-  Heart,
-  CheckCircle,
-  Quote
+  Clock, 
+  Mail,
+  Award,
+  Users,
+  Target,
+  Heart
 } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 
-export default function About() {
+function AboutContent() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
@@ -63,7 +63,7 @@ export default function About() {
                     <span className="text-gray-700">宅地建物取引士</span>
                   </div>
                   <div className="flex items-center">
-                    <Building className="h-5 w-5 text-yellow-600 mr-3" />
+                    <Target className="h-5 w-5 text-yellow-600 mr-3" />
                     <span className="text-gray-700">不動産業界キャリア10年</span>
                   </div>
                   <div className="flex items-center">
@@ -71,7 +71,7 @@ export default function About() {
                     <span className="text-gray-700">奈良県出身</span>
                   </div>
                   <div className="flex items-center">
-                    <Star className="h-5 w-5 text-yellow-600 mr-3" />
+                    <Target className="h-5 w-5 text-yellow-600 mr-3" />
                     <span className="text-gray-700">地域密着型経営</span>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
             <div className="flex items-center mb-6">
-              <Quote className="h-8 w-8 text-yellow-600 mr-3" />
+              <MessageCircle className="h-8 w-8 text-yellow-600 mr-3" />
               <h2 className="text-2xl font-bold text-gray-900">
                 代表メッセージ
               </h2>
@@ -185,7 +185,7 @@ export default function About() {
 
             <div className="text-center p-6 bg-white rounded-lg shadow-md">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building className="h-8 w-8 text-yellow-600" />
+                <Target className="h-8 w-8 text-yellow-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">地域貢献</h3>
               <p className="text-gray-600">
@@ -210,7 +210,7 @@ export default function About() {
 
           <div className="space-y-6">
             <div className="flex items-start">
-              <CheckCircle className="h-6 w-6 text-yellow-600 mr-4 mt-1 flex-shrink-0" />
+              <Clock className="h-6 w-6 text-yellow-600 mr-4 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold mb-2">常に正直であること</h3>
                 <p className="text-gray-600">物件の良い点も悪い点も、隠すことなく正直にお伝えします。</p>
@@ -218,7 +218,7 @@ export default function About() {
             </div>
             
             <div className="flex items-start">
-              <CheckCircle className="h-6 w-6 text-yellow-600 mr-4 mt-1 flex-shrink-0" />
+              <Clock className="h-6 w-6 text-yellow-600 mr-4 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold mb-2">迅速な対応</h3>
                 <p className="text-gray-600">お客様からのご相談には、できる限り早くお答えいたします。</p>
@@ -226,7 +226,7 @@ export default function About() {
             </div>
             
             <div className="flex items-start">
-              <CheckCircle className="h-6 w-6 text-yellow-600 mr-4 mt-1 flex-shrink-0" />
+              <Clock className="h-6 w-6 text-yellow-600 mr-4 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold mb-2">継続的なサポート</h3>
                 <p className="text-gray-600">お引越し後も、住まいに関するご相談をいつでもお受けいたします。</p>
@@ -299,5 +299,13 @@ export default function About() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function About() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AboutContent />
+    </Suspense>
   );
 } 
