@@ -10,7 +10,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">センチュリー21ホームマート</h3>
             <p className="text-gray-300 mb-4">
               センチュリー21リフォーム施工店。奈良県広陵町の不動産専門店。センチュリー21の全国ネットワークを活かし、
-              売買仲介・買取（URICO）・リフォームまでワンストップでサポートいたします。
+              売買仲介・リフォームまでワンストップでサポートいたします。
             </p>
             <div className="flex space-x-4">
               <span className="text-gray-300">TEL: 0120-43-8639</span>

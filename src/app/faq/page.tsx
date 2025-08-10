@@ -25,27 +25,6 @@ export default function FAQ() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const faqItems: FAQItem[] = [
-    // 買取関連
-    {
-      question: '買取価格はどのように決まりますか？',
-      answer: '物件の築年数、立地、間取り、現状などを総合的に判断して査定いたします。市場相場を基準に、お客様に最適な価格をご提示いたします。',
-      category: 'buy'
-    },
-    {
-      question: '買取から売却までの期間はどのくらいですか？',
-      answer: 'URICO制度（当社買取）の場合は最短数週間で現金化が可能です。仲介による売却の場合は、市場状況により3〜6ヶ月程度かかることがございます。',
-      category: 'buy'
-    },
-    {
-      question: '買取査定は無料ですか？',
-      answer: 'はい、買取査定は完全無料で行っております。お気軽にお問い合わせください。',
-      category: 'buy'
-    },
-    {
-      question: 'URICO制度と仲介売却の違いは何ですか？',
-      answer: 'URICO制度は当社が直接買い取るため、最短で現金化が可能です。仲介売却は市場相場に近い価格での売却が期待できますが、買主が見つかるまでお時間をいただく必要があります。',
-      category: 'buy'
-    },
     // 購入関連
     {
       question: '物件の内見は可能ですか？',
@@ -81,7 +60,7 @@ export default function FAQ() {
     // その他
     {
       question: '営業時間は何時から何時までですか？',
-      answer: '営業時間は9:00〜22:00です。定休日は毎週水曜日となっております。',
+      answer: '営業時間は9:00〜22:00です。定休日は年末年始となっております。',
       category: 'other'
     },
     {
@@ -98,7 +77,6 @@ export default function FAQ() {
 
   const categories = [
     { id: 'all', name: 'すべて', icon: HelpCircle },
-    { id: 'buy', name: '買取・売却', icon: CheckCircle },
     { id: 'sell', name: '物件購入', icon: User },
     { id: 'renovation', name: 'リフォーム', icon: Award },
     { id: 'other', name: 'その他', icon: Clock }

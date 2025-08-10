@@ -24,16 +24,12 @@ function CompanyContent() {
       <section className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="flex justify-center mb-6">
-              <div className="bg-white p-4 rounded-lg shadow-lg">
-                <span className="text-yellow-600 font-bold text-2xl">CENTURY 21</span>
-              </div>
-            </div>
+
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               会社概要
             </h1>
             <p className="text-xl mb-8 text-yellow-100">
-              奈良県広陵町に根差す、センチュリー21ホームマート
+              奈良県広陵町に根差す、ホームマート
             </p>
           </div>
         </div>
@@ -48,12 +44,12 @@ function CompanyContent() {
             </h2>
             <div className="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
               <p className="mb-6">
-                センチュリー21ホームマートは、奈良県広陵町に本社を置く不動産会社です。
-                センチュリー21の全国ネットワークを活用しながら、地域密着型のサービスを提供しています。
+                ホームマートは、奈良県広陵町に本社を置く不動産会社です。
+                地域密着型のサービスを提供しています。
                 &ldquo;お客様の笑顔が私たちの原動力&rdquo;をモットーに、誠実で丁寧な対応を心がけています。
               </p>
               <p className="mb-6">
-                不動産の売買仲介から自社買取による再販、リフォーム提案まで、住まいに関するあらゆるニーズにワンストップでお応えできる体制が私たちの強みです。
+                不動産の売買仲介からリフォーム提案まで、住まいに関するあらゆるニーズにワンストップでお応えできる体制が私たちの強みです。
               </p>
               <p className="text-yellow-600 font-semibold">
                 地元の皆様に支えられながら成長し、これからも誠実・安心をモットーに地域貢献してまいります。
@@ -120,8 +116,8 @@ function CompanyContent() {
                 <div className="flex items-start">
                   <Clock className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-gray-900">設立</p>
-                    <p className="text-gray-600">2014年6月</p>
+                    <p className="font-semibold text-gray-900">創業</p>
+                    <p className="text-gray-600">2013年9月</p>
                   </div>
                 </div>
 
@@ -145,7 +141,7 @@ function CompanyContent() {
                   <Clock className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900">営業時間</p>
-                    <p className="text-gray-600">9:00〜22:00<br />定休日：毎週水曜日</p>
+                    <p className="text-gray-600">9:00〜22:00<br />定休日：年末年始</p>
                   </div>
                 </div>
               </div>
@@ -156,7 +152,7 @@ function CompanyContent() {
                   <div>
                     <p className="font-semibold text-gray-900">所在地</p>
                     <p className="text-gray-600">
-                      〒635-0833<br />
+                      〒635-0821<br />
                       奈良県北葛城郡広陵町笠287-1<br />
                       <span className="text-sm text-gray-500">
                         近鉄「大和高田駅」よりバス15分・「さわやかホール」バス停下車徒歩5分
@@ -181,13 +177,7 @@ function CompanyContent() {
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-gray-900">免許番号</p>
-                    <p className="text-gray-600">奈良県知事(1)第4582号</p>
-                  </div>
-                </div>
+
 
                 <div className="flex items-start">
                   <Award className="h-5 w-5 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
@@ -221,31 +211,21 @@ function CompanyContent() {
           <div className="space-y-6">
             <div className="flex items-start">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                <span className="text-yellow-600 font-semibold">2014</span>
+                <span className="text-yellow-600 font-semibold">2013</span>
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-2">会社設立</h3>
-                <p className="text-gray-600">奈良県広陵町にて株式会社ホームマートを設立、センチュリー21加盟</p>
+                <h3 className="text-lg font-semibold mb-2">創業</h3>
+                <p className="text-gray-600">奈良県広陵町にて株式会社ホームマートを創業</p>
               </div>
             </div>
 
             <div className="flex items-start">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                <span className="text-yellow-600 font-semibold">2019</span>
+                <span className="text-yellow-600 font-semibold">2016</span>
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">リフォーム部門開設</h3>
                 <p className="text-gray-600">中古物件のリフォーム提案事業を開始</p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                <span className="text-yellow-600 font-semibold">2022</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">URICO制度開始</h3>
-                <p className="text-gray-600">自社買取による再販事業（URICO制度）を本格開始</p>
               </div>
             </div>
 
@@ -279,7 +259,7 @@ function CompanyContent() {
               <div className="text-center">
                 <Building className="h-12 w-12 text-gray-400 mx-auto mb-2" />
                 <span className="text-gray-500">店舗外観</span>
-                <p className="text-sm text-gray-400 mt-2">明るいイエローのセンチュリー21看板が目印です</p>
+                <p className="text-sm text-gray-400 mt-2">明るいイエローの看板が目印です</p>
               </div>
             </div>
             <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
@@ -340,7 +320,16 @@ function CompanyContent() {
           </div>
 
           <div className="mt-8 bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500">Google Maps（地図埋め込み予定）</span>
+            <iframe
+              src="https://maps.app.goo.gl/B3zT4BE1gNBGkZ3A7"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="センチュリー21ホームマートの場所"
+            />
           </div>
         </div>
       </section>

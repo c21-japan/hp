@@ -56,16 +56,10 @@ const Navigation = () => {
                 <span>営業時間：9：00～22：00</span>
               </div>
               <div className="hidden sm:block">
-                <span>定休日：毎週水曜日</span>
+                <span>定休日：年末年始</span>
               </div>
             </div>
             <div className="flex items-center space-x-4 mt-2 sm:mt-0">
-              <Link href="/login" className="hover:text-yellow-200 transition-colors">
-                ログイン
-              </Link>
-              <Link href="/favorites" className="hover:text-yellow-200 transition-colors">
-                お気に入り
-              </Link>
             </div>
           </div>
         </div>
@@ -137,7 +131,7 @@ const Navigation = () => {
                 お問い合わせ
               </Link>
               <a 
-                href="https://line.me/R/ti/p/@c21-homemart" 
+                href="https://lin.ee/gzWsIFF" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center"
@@ -207,7 +201,7 @@ const Navigation = () => {
                 お問い合わせ
               </Link>
               <a 
-                href="https://line.me/R/ti/p/@c21-homemart" 
+                href="https://lin.ee/gzWsIFF" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-md text-base font-medium transition-colors flex items-center justify-center"

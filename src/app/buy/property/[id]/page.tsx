@@ -372,7 +372,7 @@ export default function PropertyDetail() {
                   <p>奈良県広陵町の不動産専門店</p>
                   <p>TEL: 0120-43-8639</p>
                   <p>営業時間: 9:00-22:00</p>
-                  <p>定休日: 毎週水曜日</p>
+                  <p>定休日: 年末年始</p>
                 </div>
               </div>
             </div>

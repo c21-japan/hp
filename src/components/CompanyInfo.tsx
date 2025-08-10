@@ -10,7 +10,7 @@ const CompanyInfo = () => {
     phone: '0120-43-8639',
     fax: '050-3183-9576',
     businessHours: '9：00～22：00',
-    holidays: '毎週水曜日',
+    holidays: '年末年始',
     license: '奈良県知事 (1) 第4582号',
     established: '2010年4月',
     capital: '1,000万円',
@@ -76,7 +76,7 @@ const CompanyInfo = () => {
                 <MapPin className="h-5 w-5 text-yellow-600 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <span className="font-medium text-gray-900">所在地</span>
-                  <div className="text-gray-700">〒635-0833</div>
+                  <div className="text-gray-700">〒635-0821</div>
                   <div className="text-gray-700">{companyData.address}</div>
                 </div>
               </div>

@@ -11,7 +11,6 @@ export default function ContactForm() {
     name: '',
     furigana: '',
     phone: '',
-    email: '',
     inquiryType: '',
     preferredContact: '',
     inquiry: '',
@@ -105,11 +104,7 @@ export default function ContactForm() {
       newErrors.phone = '正しい電話番号を入力してください';
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'メールアドレスは必須です';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = '正しいメールアドレスを入力してください';
-    }
+
 
     if (!formData.inquiryType) {
       newErrors.inquiryType = 'ご相談内容を選択してください';
@@ -247,7 +242,7 @@ export default function ContactForm() {
                   <div>
                     <p className="font-medium text-gray-900">所在地</p>
                     <p className="text-gray-600">
-                      〒635-0833<br />
+                      〒635-0821<br />
                       奈良県北葛城郡広陵町笠287-1<br />
                       センチュリー21ホームマート
                     </p>
@@ -271,14 +266,14 @@ export default function ContactForm() {
                     24時間受付可能！お気軽にご相談ください
                   </p>
                   <a
-                    href="https://line.me/R/ti/p/@c21-homemart"
+                    href="https://lin.ee/gzWsIFF"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors text-sm"
                   >
                     <MessageCircle className="mr-2 h-4 w-4" />
                     LINEで相談する
-                    <ExternalLink className="ml-1 h-3 w-3" />
+                    <ExternalLink className="ml-1 h-3 w-4" />
                   </a>
                 </div>
               </div>
@@ -352,24 +347,7 @@ export default function ContactForm() {
                     )}
                   </div>
 
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      メールアドレス <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                    )}
-                  </div>
+
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -414,7 +392,6 @@ export default function ContactForm() {
                     >
                       <option value="">選択してください</option>
                       <option value="phone">電話</option>
-                      <option value="email">メール</option>
                       <option value="both">どちらでも可</option>
                     </select>
                     {errors.preferredContact && (

@@ -29,13 +29,13 @@ export default function Sell() {
     {
       step: 3,
       title: '売却方法の決定',
-      description: 'お客様のご希望に合わせて最適な売却方法（仲介 or URICO買取）をご提案します。',
+      description: 'お客様のご希望に合わせて最適な売却方法（仲介）をご提案します。',
       icon: Users
     },
     {
       step: 4,
       title: 'ご契約',
-      description: '仲介の場合は買主とのマッチング、URICOの場合は当社との直接契約を行います。',
+      description: '仲介の場合は買主とのマッチングを行います。',
       icon: CheckCircle
     },
     {
@@ -51,12 +51,6 @@ export default function Sell() {
       title: '仲介による売却',
       description: '市場相場に近い価格で売却可能',
       features: ['市場相場での売却', '期間：平均3～6ヶ月', '買主をお待ちいただく必要があります'],
-      color: 'yellow'
-    },
-    {
-      title: 'URICO制度（当社買取）',
-      description: '最短数週間での現金化が可能',
-      features: ['即現金化', '期間：最短数週間', '仲介手数料不要'],
       color: 'yellow'
     }
   ];
@@ -180,63 +174,6 @@ export default function Sell() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* URICO System Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              当社買取『URICO（ウリコ）制度』とは？
-            </h2>
-            <p className="text-lg text-gray-600">
-              お客様の不動産をホームマートが直接買い取り、当社でリフォーム・再販売する独自サービスです
-            </p>
-          </div>
-
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-yellow-800">URICO制度の特徴</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-yellow-600 mr-3" />
-                    <span className="text-sm text-gray-700">仲介ではありませんので、買主探しの時間が不要</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-yellow-600 mr-3" />
-                    <span className="text-sm text-gray-700">最短で契約可能、売却代金は速やかにお支払い</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-yellow-600 mr-3" />
-                    <span className="text-sm text-gray-700">転勤や相続などで早く処分したい方に最適</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-yellow-600 mr-3" />
-                    <span className="text-sm text-gray-700">近隣に知られず売却したい方にも選ばれています</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-yellow-800">安心のポイント</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-yellow-600 mr-3" />
-                    <span className="text-sm text-gray-700">査定は無料</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-yellow-600 mr-3" />
-                    <span className="text-sm text-gray-700">買取価格にご納得いただけなければ仲介での売却も可能</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-yellow-600 mr-3" />
-                    <span className="text-sm text-gray-700">安心してご相談ください</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

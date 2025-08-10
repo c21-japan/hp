@@ -161,7 +161,7 @@ function HomeContent() {
     },
     {
       question: '営業時間は何時から何時までですか？',
-      answer: '営業時間は9:00〜22:00です。定休日は毎週水曜日となっております。',
+      answer: '営業時間は9:00〜22:00です。定休日は年末年始となっております。',
       category: 'other'
     },
     {
@@ -270,7 +270,7 @@ function HomeContent() {
             奈良・南大阪の不動産とリフォームなら<br/>
             ホームマートにお任せください
           </h1>
-          <p className="text-lg md:text-xl mb-8">センチュリー21加盟｜創業10年の実績</p>
+                      <p className="text-lg md:text-xl mb-8">創業12年の実績</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ClientButton text="今すぐ無料査定" action={() => window.location.href='/assessment'} />
             <ClientButton text="電話で相談 0120-43-8639" action={() => window.location.href='tel:0120-43-8639'} />
@@ -401,29 +401,31 @@ function HomeContent() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">価格</label>
                 <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
                   <option value="">価格を選択</option>
-                  <option value="0-500">5,000,000円まで</option>
-                  <option value="500-1000">5,000,000円から10,000,000円</option>
-                  <option value="1000-1500">10,000,000円から15,000,000円</option>
-                  <option value="1500-2000">15,000,000円から20,000,000円</option>
-                  <option value="2000-2500">20,000,000円から25,000,000円</option>
-                  <option value="2500-3000">25,000,000円から30,000,000円</option>
-                  <option value="3000-">30,000,000円以上</option>
+                  <option value="0-500">500万円まで</option>
+                  <option value="500-1000">500万円から1000万円</option>
+                  <option value="1000-1500">1000万円から1500万円</option>
+                  <option value="1500-2000">1500万円から2000万円</option>
+                  <option value="2000-2500">2000万円から2500万円</option>
+                  <option value="2500-3000">2500万円から3000万円</option>
+                  <option value="3000-">3000万円以上</option>
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">沿線</label>
                 <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
                   <option value="">沿線を選択</option>
-                  <option value="kintetsu-osaka">近鉄大阪線</option>
-                  <option value="kintetsu-sakurai">桜井線</option>
-                  <option value="kintetsu-kashihara">近鉄橿原線</option>
-                  <option value="wakayama">和歌山線</option>
                   <option value="kansai">関西本線</option>
-                  <option value="kintetsu-tawaramoto">近鉄田原本線</option>
-                  <option value="kintetsu-ikoma">近鉄生駒線</option>
+                  <option value="jr-wakayama">JR和歌山線</option>
+                  <option value="jr-sakurai">JR桜井線</option>
+                  <option value="kintetsu-kashihara">近鉄橿原線</option>
+                  <option value="kintetsu-tenri">近鉄天理線</option>
                   <option value="kintetsu-minami-osaka">近鉄南大阪線</option>
-                  <option value="kintetsu-namba-nara">近鉄難波・奈良線</option>
                   <option value="kintetsu-gose">近鉄御所線</option>
+                  <option value="kintetsu-tawaramoto">近鉄田原本線</option>
+                  <option value="kintetsu-osaka">近鉄大阪線</option>
+                  <option value="hanwa">阪和線</option>
+                  <option value="kintetsu-namba-nara">近鉄難波・奈良線</option>
+                  <option value="kintetsu-ikoma">近鉄生駒線</option>
                 </select>
               </div>
               <div className="flex items-end">

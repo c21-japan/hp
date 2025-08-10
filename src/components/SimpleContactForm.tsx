@@ -7,7 +7,6 @@ export default function SimpleContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: '',
     inquiry: ''
   });
 
@@ -32,7 +31,7 @@ export default function SimpleContactForm() {
     setTimeout(() => {
       setIsSubmitting(false);
       alert('お問い合わせありがとうございます。担当者より2営業日以内にご連絡いたします。');
-      setFormData({ name: '', phone: '', email: '', inquiry: '' });
+      setFormData({ name: '', phone: '', inquiry: '' });
     }, 1000);
   };
 
@@ -62,17 +61,7 @@ export default function SimpleContactForm() {
         />
       </div>
       
-      <div>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          placeholder="メールアドレス"
-          required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-        />
-      </div>
+
       
       <div>
         <textarea

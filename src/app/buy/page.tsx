@@ -167,12 +167,11 @@ function BuyContent() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const message = formData.get('message') as string;
     
     // ここでフォームデータを処理（例：APIに送信、メール送信など）
-    console.log('Inquiry submitted:', { name, email, phone, message, property: selectedProperty });
+    console.log('Inquiry submitted:', { name, phone, message, property: selectedProperty });
     
     // モーダルを閉じる
     setShowInquiryModal(false);
@@ -481,15 +480,7 @@ function BuyContent() {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">メールアドレス</label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                />
-              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">電話番号</label>
                 <input
