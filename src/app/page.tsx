@@ -23,6 +23,7 @@ import { useState } from 'react';
 import PropertyModal from '@/components/PropertyModal';
 import UpdateInfo from '@/components/UpdateInfo';
 import PropertyDisplay from '@/components/PropertyDisplay';
+import ContactForm from '@/components/ContactForm';
 
 interface Property {
   id: number;
@@ -261,58 +262,16 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              センチュリー21ホームマート
-            </h1>
-            <div className="text-xl md:text-2xl mb-6">
-              <div className="sm:hidden">
-                <div>奈良に根ざした</div>
-                <div>安心サポート</div>
-              </div>
-              <div className="hidden sm:block">
-                奈良に根ざした安心サポート
-              </div>
-            </div>
-            <p className="text-lg md:text-xl text-yellow-100 max-w-3xl mx-auto">
-              センチュリー21ホームマートは、リフォーム施工店として自社施工に特化した不動産専門店です
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-yellow-500 bg-opacity-20 rounded-lg p-6">
-              <div className="text-3xl font-bold mb-2">8,000件以上</div>
-              <div className="text-yellow-100">累計販売実績</div>
-            </div>
-            <div className="bg-yellow-500 bg-opacity-20 rounded-lg p-6">
-              <div className="text-3xl font-bold mb-2">宅建士在籍</div>
-              <div className="text-yellow-100">専門資格保有</div>
-            </div>
-            <div className="bg-yellow-500 bg-opacity-20 rounded-lg p-6">
-              <div className="text-3xl font-bold mb-2">自社施工</div>
-              <div className="text-yellow-100">品質保証</div>
-            </div>
-          </div>
-
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            奈良・南大阪の不動産とリフォームなら<br/>
+            ホームマートにお任せください
+          </h1>
+          <p className="text-lg md:text-xl mb-8">センチュリー21加盟｜創業10年の実績</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-yellow-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center text-lg"
-            >
-              <Phone className="mr-2 h-6 w-6" />
-              お問い合わせ
-            </Link>
-            <a
-              href="https://line.me/R/ti/p/@c21-homemart"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors inline-flex items-center text-lg"
-            >
-              <MessageCircle className="mr-2 h-6 w-6" />
-              LINEで気軽に相談
-            </a>
+            <ClientButton text="今すぐ無料査定" action={() => window.location.href='/assessment'} />
+            <ClientButton text="電話で相談 0120-43-8639" action={() => window.location.href='tel:0120-43-8639'} />
           </div>
         </div>
       </section>
@@ -326,21 +285,21 @@ export default function Home() {
                 <Shield className="h-6 w-6 text-yellow-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">累計取引実績500件以上</h3>
-              <p className="text-sm text-gray-600">奈良県内での豊富な実績</p>
+              <p className="text-base text-gray-600">奈良県内での豊富な実績</p>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
               <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Award className="h-6 w-6 text-yellow-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">宅建士多数在籍</h3>
-              <p className="text-sm text-gray-600">専門資格保有スタッフ</p>
+              <p className="text-base text-gray-600">専門資格保有スタッフ</p>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
               <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="h-6 w-6 text-yellow-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">奈良県知事(1)第4582号 認可済</h3>
-              <p className="text-sm text-gray-600">正式な不動産会社</p>
+              <p className="text-base text-gray-600">正式な不動産会社</p>
             </div>
           </div>
         </div>
@@ -352,19 +311,19 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
               <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">999件</div>
-              <div className="text-sm text-yellow-600">掲載物件数</div>
+              <div className="text-base text-yellow-600">掲載物件数</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">998件</div>
-              <div className="text-sm text-yellow-600">公開物件数</div>
+              <div className="text-base text-yellow-600">公開物件数</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">527件</div>
-              <div className="text-sm text-yellow-600">本日の更新物件数</div>
+              <div className="text-base text-yellow-600">本日の更新物件数</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-yellow-700 mb-1">0件</div>
-              <div className="text-sm text-yellow-600">会員物件数</div>
+              <div className="text-base text-yellow-600">会員物件数</div>
             </div>
           </div>
         </div>
@@ -401,7 +360,7 @@ export default function Home() {
                 {['高田駅', '王寺駅', '橿原神宮前駅', '大和八木駅', '桜井駅', '生駒駅', '大和高田駅', '香芝駅', '柏原駅', '大和朝倉駅'].map((station) => (
                   <button
                     key={station}
-                    className="px-3 py-2 text-sm border border-gray-300 rounded-md hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                    className="px-4 py-3 text-base border border-gray-300 rounded-md hover:border-yellow-500 hover:text-yellow-600 transition-colors min-h-[48px]"
                   >
                     {station}
                   </button>
@@ -416,7 +375,7 @@ export default function Home() {
                 {['橿原市', '大和高田市', '香芝市', '生駒市', '北葛城郡王寺町', '桜井市', '大和郡山市', '天理市', '北葛城郡河合町', '磯城郡川西町'].map((area) => (
                   <button
                     key={area}
-                    className="px-3 py-2 text-sm border border-gray-300 rounded-md hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                    className="px-4 py-3 text-base border border-gray-300 rounded-md hover:border-yellow-500 hover:text-yellow-600 transition-colors min-h-[48px]"
                   >
                     {area}
                   </button>
@@ -466,7 +425,7 @@ export default function Home() {
                 </select>
               </div>
               <div className="flex items-end">
-                <button className="w-full bg-yellow-600 text-white py-3 px-6 rounded-md font-semibold hover:bg-yellow-700 transition-colors text-lg">
+                <button className="w-full bg-yellow-600 text-white py-4 px-6 rounded-md font-semibold hover:bg-yellow-700 transition-colors text-lg min-h-[48px]">
                   検索する
                 </button>
               </div>
@@ -671,7 +630,12 @@ export default function Home() {
             {blogPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="h-48 bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500">記事画像</span>
+                  <img 
+                    src="/api/placeholder/400/250" 
+                    alt="記事画像" 
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center mb-3">
@@ -721,30 +685,11 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-yellow-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            お気軽にご相談ください
-          </h2>
-          <p className="text-xl mb-8 text-yellow-100">
-            不動産に関するご相談は、経験豊富なスタッフが丁寧にサポートいたします
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-yellow-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center text-lg"
-            >
-              <Phone className="mr-2 h-6 w-6" />
-              お問い合わせ
-            </Link>
-            <Link
-              href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors inline-flex items-center text-lg"
-            >
-              <MessageCircle className="mr-2 h-6 w-6" />
-              LINEで相談
-            </Link>
-          </div>
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">まずは無料相談から</h2>
+          <p className="mb-8">お客様の状況に合わせた最適なご提案をいたします</p>
+          <ContactForm />
         </div>
       </section>
 

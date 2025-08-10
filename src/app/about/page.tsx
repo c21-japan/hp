@@ -11,6 +11,7 @@ import {
   CheckCircle,
   Quote
 } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
 
 export default function About() {
   return (
@@ -286,6 +287,15 @@ export default function About() {
               お問い合わせフォーム
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">まずは無料相談から</h2>
+          <p className="mb-8">お客様の状況に合わせた最適なご提案をいたします</p>
+          <ContactForm />
         </div>
       </section>
     </div>

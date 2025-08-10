@@ -12,6 +12,7 @@ import {
   Shield,
   Heart
 } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
 
 export default function Company() {
   return (
@@ -342,29 +343,11 @@ export default function Company() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-yellow-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            お気軽にお問い合わせください
-          </h2>
-          <p className="text-xl mb-8 text-yellow-100">
-            不動産に関するご相談は、経験豊富なスタッフが丁寧にサポートいたします
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              お問い合わせ
-            </Link>
-            <a
-              href="tel:0120-43-8639"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors"
-            >
-              0120-43-8639
-            </a>
-          </div>
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">まずは無料相談から</h2>
+          <p className="mb-8">お客様の状況に合わせた最適なご提案をいたします</p>
+          <ContactForm />
         </div>
       </section>
     </div>

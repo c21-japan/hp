@@ -145,10 +145,12 @@ const PropertyDisplay = () => {
             >
               {/* 物件画像プレースホルダー */}
               <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <Home className="h-16 w-16 mx-auto mb-2 opacity-50" />
-                  <p className="text-sm">物件画像</p>
-                </div>
+                <img 
+                  src="/api/placeholder/400/250" 
+                  alt={`${property.title}の物件画像`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
 
               {/* 物件情報 */}

@@ -8,8 +8,11 @@ import {
   Phone, 
   MessageCircle,
   Wrench,
-  Home
+  Home,
+  X,
+  MapPin
 } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
 
 interface CaseStudy {
   id: string;
@@ -20,6 +23,10 @@ interface CaseStudy {
   afterImage: string;
   location: string;
   completionDate: string;
+  price?: string;
+  type?: string;
+  duration?: string;
+  staff?: string;
 }
 
 export default function CaseStudies() {
@@ -312,113 +319,84 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      {/* Modal for Case Study Detail */}
+      {/* CTA Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">まずは無料相談から</h2>
+          <p className="mb-8">お客様の状況に合わせた最適なご提案をいたします</p>
+          <ContactForm />
+        </div>
+      </section>
+
+      {/* Case Study Modal */}
       {selectedCase && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold">{selectedCase.title}</h2>
+            <div className="relative">
+              {/* Header */}
+              <div className="flex justify-between items-center p-6 border-b">
+                <h2 className="text-xl font-semibold text-gray-900">施工事例詳細</h2>
                 <button
                   onClick={() => setSelectedCase(null)}
-                  className="text-gray-500 hover:text-gray-700"
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
                 >
-                  <span className="text-2xl">×</span>
+                  <X className="h-6 w-6" />
                 </button>
               </div>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-red-600">施工前</h3>
-                  <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-                    <Image
-                      src={selectedCase.beforeImage}
-                      alt="施工前"
-                      fill
-                      className="object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gray-200 flex items-center justify-center hidden">
-                      <span className="text-gray-500">施工前の写真</span>
+
+              {/* Content */}
+              <div className="p-6">
+                {/* Image */}
+                <div className="h-64 bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
+                  <span className="text-gray-500">施工前後の画像</span>
+                </div>
+
+                {/* Case Study Info */}
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{selectedCase.title}</h3>
+                    <div className="flex items-center text-gray-600 mb-4">
+                      <MapPin className="h-5 w-5 mr-2" />
+                      <span>{selectedCase.location}</span>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-green-600">施工後</h3>
-                  <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-                    <Image
-                      src={selectedCase.afterImage}
-                      alt="施工後"
-                      fill
-                      className="object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gray-200 flex items-center justify-center hidden">
-                      <span className="text-gray-500">施工後の写真</span>
+
+                  <div className="bg-yellow-50 p-4 rounded-lg">
+                    <p className="text-2xl font-bold text-yellow-600">{selectedCase.price}</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="text-gray-700">
+                      <span className="font-medium">施工内容:</span> {selectedCase.type}
+                    </div>
+                    <div className="text-gray-700">
+                      <span className="font-medium">工期:</span> {selectedCase.duration}
+                    </div>
+                    <div className="text-gray-700">
+                      <span className="font-medium">担当者:</span> {selectedCase.staff}
                     </div>
                   </div>
+
+                  <div className="border-t pt-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">施工のポイント</h4>
+                    <p className="text-gray-600">{selectedCase.description}</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">工事内容</h3>
-                <p className="text-gray-700">{selectedCase.description}</p>
-              </div>
-              
-              <div className="flex justify-between items-center text-sm text-gray-600 mb-6">
-                <span>施工場所: {selectedCase.location}</span>
-                <span>完工日: {selectedCase.completionDate}</span>
-              </div>
-              
-              <div className="flex justify-center">
-                <Link
-                  href="/contact"
-                  className="bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors inline-flex items-center"
-                >
-                  <Wrench className="mr-2 h-5 w-5" />
-                  同様の工事を依頼する
-                </Link>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                  <button className="flex-1 bg-yellow-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-yellow-700 transition-colors">
+                    お問い合わせ
+                  </button>
+                  <button className="flex-1 border-2 border-yellow-600 text-yellow-600 py-3 px-6 rounded-lg font-semibold hover:bg-yellow-600 hover:text-white transition-colors">
+                    詳細を見る
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
-
-      {/* CTA Section */}
-      <section className="bg-yellow-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            お気軽にご相談ください
-          </h2>
-          <p className="text-xl mb-8 text-yellow-100">
-            リフォームでお困りの際は、経験豊富なスタッフが丁寧にサポートいたします
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-yellow-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center text-lg"
-            >
-              <Phone className="mr-2 h-6 w-6" />
-              お問い合わせ
-            </Link>
-            <Link
-              href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors inline-flex items-center text-lg"
-            >
-              <MessageCircle className="mr-2 h-6 w-6" />
-              LINEで相談
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 } 

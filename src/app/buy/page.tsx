@@ -16,6 +16,7 @@ import {
   Clock
 } from 'lucide-react';
 import { useState } from 'react';
+import ContactForm from '@/components/ContactForm';
 
 interface Property {
   id: number;
@@ -436,55 +437,70 @@ export default function Buy() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-yellow-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            お気軽にご相談ください
-          </h2>
-          <p className="text-xl mb-8 text-yellow-100">
-            物件探しでお困りの際は、経験豊富なスタッフが丁寧にサポートいたします
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-yellow-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center text-lg"
-            >
-              <Phone className="mr-2 h-6 w-6" />
-              お問い合わせ
-            </Link>
-            <Link
-              href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-yellow-600 transition-colors inline-flex items-center text-lg"
-            >
-              <MessageCircle className="mr-2 h-6 w-6" />
-              LINEで相談
-            </Link>
-          </div>
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">まずは無料相談から</h2>
+          <p className="mb-8">お客様の状況に合わせた最適なご提案をいたします</p>
+          <ContactForm />
         </div>
       </section>
 
-      {/* Property Inquiry Modal */}
-      {showInquiryModal && selectedProperty && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4">
-            <h3 className="text-xl font-bold mb-4">物件お問い合わせ</h3>
-            <p className="text-gray-600 mb-4">
-              {selectedProperty.title}（{selectedProperty.location}）についてお問い合わせいただき、ありがとうございます。
-            </p>
-            <div className="space-y-4">
-              <Link
-                href={`/contact?property=${selectedProperty.id}`}
-                className="w-full bg-yellow-600 text-white py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors text-center block"
-              >
-                お問い合わせフォームへ進む
-              </Link>
-              <button
-                onClick={() => setShowInquiryModal(false)}
-                className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
-                キャンセル
-              </button>
-            </div>
+      {/* Inquiry Modal */}
+      {showInquiryModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-md w-full p-6">
+            <h3 className="text-lg font-semibold mb-4">物件についてお問い合わせ</h3>
+            <form onSubmit={handleInquirySubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">お名前</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">メールアドレス</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">電話番号</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">ご質問・ご要望</label>
+                <textarea
+                  name="message"
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                ></textarea>
+              </div>
+              <div className="flex gap-3">
+                <button
+                  type="submit"
+                  className="flex-1 bg-yellow-600 text-white py-2 px-4 rounded-md font-medium hover:bg-yellow-700 transition-colors"
+                >
+                  送信する
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowInquiryModal(false)}
+                  className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md font-medium hover:bg-gray-400 transition-colors"
+                >
+                  キャンセル
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
